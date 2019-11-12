@@ -505,6 +505,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./add-customer/add-customer.component */ "./src/app/add-customer/add-customer.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
 
 
 
@@ -531,7 +533,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]
         ],
         providers: [],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -627,12 +630,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _mock_customers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mock-customers */ "./src/app/mock-customers.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
 
 
 
 
 let CustomerService = class CustomerService {
-    constructor() { }
+    constructor(http) {
+        this.http = http;
+    }
     getCustomers() {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"]);
     }
@@ -641,8 +648,17 @@ let CustomerService = class CustomerService {
     }
     addCustomer(customer) {
         _mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"].push(customer);
+        console.log(customer);
+        this.http.put('http://localhost:3000/customer', customer).subscribe(data => {
+            console.log(data);
+        }, err => {
+            console.log(err);
+        });
     }
 };
+CustomerService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
+];
 CustomerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
@@ -996,7 +1012,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/kylefruiz/Desktop/Angular/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/kylefruiz/Desktop/License Manager/Angular/src/main.ts */"./src/main.ts");
 
 
 /***/ })
