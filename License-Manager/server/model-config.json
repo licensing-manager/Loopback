@@ -38,5 +38,13 @@
   "Customer": {
     "dataSource": "mongoatlas",
     "public": true
+  },
+  "Product": {
+    "dataSource": "mongoatlas",
+    "public": true
+  },
+  "Purchase": {
+    "dataSource": "mongoatlas",
+    "public": true
   }
 }

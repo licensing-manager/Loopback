@@ -28,7 +28,29 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Add New License Purchase</h1>\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"id\">Purchase ID</label>\n                <input type=\"text\" class=\"form-control\" id=\"id\"\n                       required\n                        [(ngModel)]=\"model.id\" name=\"id\"\n                        #id=\"ngModel\">\n                <div [hidden]=\"id.valid || id.pristine\"\n                    class=\"alert alert-danger\">\n                    ID is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"name\">Customer Name</label>\n                <input type=\"text\" class=\"form-control\" id=\"name\"\n                       required\n                        [(ngModel)]=\"model.customer_name\" name=\"name\"\n                        #name=\"ngModel\">\n                <div [hidden]=\"name.valid || name.pristine\"\n                    class=\"alert alert-danger\">\n                    Customer Name is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"product\">Product Name</label>\n                <input type=\"text\" class=\"form-control\" id=\"product\"\n                       required\n                        [(ngModel)]=\"model.product\" name=\"product\"\n                        #product=\"ngModel\">\n                <div [hidden]=\"product.valid || product.pristine\"\n                    class=\"alert alert-danger\">\n                    Product Name is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"no_licenses\">Number of Licenses</label>\n                <input type=\"text\" class=\"form-control\" id=\"no_licenses\"\n                       required\n                        [(ngModel)]=\"model.no_of_licenses\" name=\"no_licenses\"\n                        #no_licenses=\"ngModel\">\n                <div [hidden]=\"no_licenses.valid || no_licenses.pristine\"\n                    class=\"alert alert-danger\">\n                    # of licenses is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"exp\">Expiration Date</label>\n                <input type=\"text\" class=\"form-control\" id=\"exp\"\n                       required\n                        [(ngModel)]=\"model.expiration_date\" name=\"exp\"\n                        #exp=\"ngModel\">\n                <div [hidden]=\"exp.valid || exp.pristine\"\n                    class=\"alert alert-danger\">\n                    Expiration Date is required\n                </div>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n        <h2>You submitted the following:</h2>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Id: </div>\n            <div class=\"col-xs-9\"> {{ model.id }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Customer Name: </div>\n            <div class=\"col-xs-9\"> {{ model.customer_name }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Product: </div>\n            <div class=\"col-xs-9\"> {{ model.product }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Number of Licenses: </div>\n            <div class=\"col-xs-9\"> {{ model.no_of_licenses }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Expiration Date: </div>\n            <div class=\"col-xs-9\"> {{ model.expiration_date }}</div>\n        </div>\n        <br>\n        <br>\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\n        <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Purchase</button>\n    </div>\n</div>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Add New Customer</h1>\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"companyName\">Company Name</label>\n                <input type=\"text\" class=\"form-control\" id=\"companyName\"\n                       required\n                        [(ngModel)]=\"model.companyName\" name=\"companyName\"\n                        #companyName=\"ngModel\">\n                <div [hidden]=\"companyName.valid || companyName.pristine\"\n                    class=\"alert alert-danger\">\n                    A company name is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"address\">Address (Please enter full address including city, state, and zip code)</label>\n                <input type=\"text\" class=\"form-control\" id=\"address\"\n                       required\n                        [(ngModel)]=\"model.address\" name=\"address\"\n                        #address=\"ngModel\">\n                <div [hidden]=\"address.valid || address.pristine\"\n                    class=\"alert alert-danger\">\n                    Address is required\n                </div>\n            </div>\n            <br>\n            <div [formGroup]=\"contactForm\">\n                <label>\n                    Contact Role\n                    <input type=\"text\" formControlName=\"role\">\n                </label>\n                <br>\n                <label>\n                    Contact Name\n                    <input type=\"text\" formControlName=\"name\">\n                </label>\n                <br>\n                <label>\n                    Contact Email\n                    <input type=\"text\" formControlName=\"email\">\n                </label>\n                <br>\n                <label>\n                    Contact Phone #\n                    <input type=\"text\" formControlName=\"phone_number\">\n                </label>\n                <br>\n                <button type=\"button\" class=\"btn btn-secondary\" (click)=\"addContact()\"\n                        [disabled]=\"!contactForm.valid\">Add Contact</button>\n            </div>\n            <br><br>\n            <div [hidden]=\"!contactAdded\">\n                <h4>Contacts</h4>\n                <table class=\"table\">\n                    <thead>\n                      <tr>\n                        <th scope=\"col\">Role</th>\n                        <th scope=\"col\">Name</th>\n                        <th scope=\"col\">Email</th>\n                        <th scope=\"col\">Phone Number</th>\n                      </tr>\n                    </thead>\n                    <tbody>\n                      <tr *ngFor=\"let contact of model.contacts\">\n                        <td>{{contact.role}}</td>\n                        <td>{{contact.name}}</td>\n                        <td>{{contact.email}}</td>\n                        <td>{{contact.phone_number}}</td>\n                      </tr>\n                    </tbody>\n                  </table>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!customerForm.form.valid || !contactAdded\">Submit\n            </button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n            <h2>You submitted the following:</h2>\n            <div class=\"row\">\n                <div class=\"col-xs-3\">Company Name: </div>\n                <div class=\"col-xs-9\"> {{ model.companyName }}</div>\n            </div>\n            <br>\n            <div class=\"row\">\n                <div class=\"col-xs-3\">Address: </div>\n                <div class=\"col-xs-9\"> {{ model.address }}</div>\n            </div>\n            <br>\n            <br>\n            <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\n            <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Customer</button>\n    </div>\n</div>\n   ");
+            /***/ 
+        }),
+        /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/add-product/add-product.component.html": 
+        /*!**********************************************************************************************!*\
+          !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/add-product/add-product.component.html ***!
+          \**********************************************************************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Add New Product</h1>\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"name\">Product Name</label>\n                <input type=\"text\" class=\"form-control\" id=\"name\"\n                       required\n                        [(ngModel)]=\"model.name\" name=\"name\"\n                        #name=\"ngModel\">\n                <div [hidden]=\"name.valid || name.pristine\"\n                    class=\"alert alert-danger\">\n                    Product name required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"desc\">Product Description</label>\n                <input type=\"text\" class=\"form-control\" id=\"desc\"\n                       required\n                        [(ngModel)]=\"model.description\" name=\"desc\"\n                        #desc=\"ngModel\">\n                <div [hidden]=\"desc.valid || desc.pristine\"\n                    class=\"alert alert-danger\">\n                    Product Description is required\n                </div>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n        <h2>You submitted the following:</h2>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Product Name: </div>\n            <div class=\"col-xs-9\"> {{ model.name }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Description: </div>\n            <div class=\"col-xs-9\"> {{ model.description }}</div>\n        </div>\n        <br>\n        <br>\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\n        <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Product</button>\n    </div>\n</div>\n\n");
+            /***/ 
+        }),
+        /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/add-purchase/add-purchase.component.html": 
+        /*!************************************************************************************************!*\
+          !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/add-purchase/add-purchase.component.html ***!
+          \************************************************************************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Enter New Purchase Order</h1>\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"id\">Purchase ID</label>\n                <input type=\"text\" class=\"form-control\" id=\"id\"\n                       required\n                        [(ngModel)]=\"model.id\" name=\"id\"\n                        #id=\"ngModel\">\n                <div [hidden]=\"id.valid || id.pristine\"\n                    class=\"alert alert-danger\">\n                    ID is required\n                </div>\n            </div>\n            <div class=\"form-group\" [formGroup]=\"selections\">\n                <label for=\"cust\">Customer</label>\n                <select class=\"form-control\" formControlName=\"customerEntry\" id=\"cust\">\n                    <option *ngFor=\"let customer of customers\">{{customer.companyName}}</option>\n                </select>\n                <br>\n                <label for=\"product\">Product</label>\n                <select class=\"form-control\" formControlName=\"productEntry\" id=\"product\">\n                    <option *ngFor=\"let product of products\">{{product.name}}</option>\n                </select>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"no_licenses\">Number of Licenses</label>\n                <input type=\"text\" class=\"form-control\" id=\"no_licenses\"\n                       required\n                        [(ngModel)]=\"model.no_of_licenses\" name=\"no_licenses\"\n                        #no_licenses=\"ngModel\">\n                <div [hidden]=\"no_licenses.valid || no_licenses.pristine\"\n                    class=\"alert alert-danger\">\n                    # of licenses is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"exp\">Expiration Date</label>\n                <input type=\"text\" class=\"form-control\" id=\"exp\"\n                       required\n                        [(ngModel)]=\"model.expiration_date\" name=\"exp\"\n                        #exp=\"ngModel\">\n                <div [hidden]=\"exp.valid || exp.pristine\"\n                    class=\"alert alert-danger\">\n                    Expiration Date is required\n                </div>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n        <h2>You submitted the following:</h2>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Id: </div>\n            <div class=\"col-xs-9\"> {{ model.id }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Customer Name: </div>\n            <div class=\"col-xs-9\"> {{ model.customer_name }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Product: </div>\n            <div class=\"col-xs-9\"> {{ model.product }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Number of Licenses: </div>\n            <div class=\"col-xs-9\"> {{ model.no_of_licenses }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Expiration Date: </div>\n            <div class=\"col-xs-9\"> {{ model.expiration_date }}</div>\n        </div>\n        <br>\n        <br>\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\n        <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Purchase</button>\n    </div>\n</div>\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html": 
@@ -83,7 +105,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<h6 style=\"float:left;\" class=\"pb-2 mb-0\">Licenses</h6>\n<a style=\"float:right;\" routerLink=\"/create\">Create a New Entry</a>\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th scope=\"col\">Customer</th>\n          <th scope=\"col\">Product</th>\n          <th scope=\"col\">Expiration Date</th>\n          <th scope=\"col\">Number of Licenses</th>\n          <th scope=\"col\">Action</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let customer of customers\">\n          <td>{{customer.customer_name}}</td>\n          <td>{{customer.product}}</td>\n          <td>{{customer.expiration_date}}</td>\n          <td>{{customer.no_of_licenses}}</td>\n          <td><a routerLink=\"/detail/{{customer.id}}\">View/Edit Licenses</a></td>\n        </tr>\n      </tbody>\n    </table>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<h6 style=\"float:left;\" class=\"pb-2 mb-0\">Licenses</h6>\n\n<div class=\"dropdown\">\n  <button class=\"btn btn-sm btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" data-toggle=\"dropdown\" id=\"dropdownMenu\" aria-haspopup=\"true\" aria-expanded=\"false\">\n    Add New\n  </button>\n  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu\">\n    <a class=\"dropdown-item\" routerLink=\"/createCustomer\">Customer</a>\n    <a class=\"dropdown-item\" routerLink=\"/createProduct\">Product</a>\n    <a class=\"dropdown-item\" routerLink=\"/createPurchase\">Purchase Order</a>\n  </div>\n</div>\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th scope=\"col\">Customer</th>\n          <th scope=\"col\">Product</th>\n          <th scope=\"col\">Expiration Date</th>\n          <th scope=\"col\">Number of Licenses</th>\n          <th scope=\"col\">License Type</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let purchase of purchases\">\n          <td>{{purchase.customer_name}}</td>\n          <td>{{purchase.product}}</td>\n          <td>{{purchase.expiration_date}}</td>\n          <td>{{purchase.no_of_licenses}}</td>\n          <td>{{purchase.licenseKeyType}}</td>\n        </tr>\n      </tbody>\n    </table>\n");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -386,6 +408,123 @@
             }
             /***/ 
         }),
+        /***/ "./src/app/Services/customer.service.ts": 
+        /*!**********************************************!*\
+          !*** ./src/app/Services/customer.service.ts ***!
+          \**********************************************/
+        /*! exports provided: CustomerService */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomerService", function () { return CustomerService; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _mock_customers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mock-customers */ "./src/app/mock-customers.ts");
+            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            var CustomerService = /** @class */ (function () {
+                function CustomerService(http) {
+                    this.http = http;
+                }
+                CustomerService.prototype.getCustomers = function () {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"]);
+                };
+                CustomerService.prototype.getCustomer = function (id) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"].find(function (customer) { return customer.id === id; }));
+                };
+                CustomerService.prototype.addCustomer = function (customer) {
+                    _mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"].push(customer);
+                    this.http.put('http://localhost:3000/customer', customer);
+                };
+                return CustomerService;
+            }());
+            CustomerService.ctorParameters = function () { return [
+                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
+            ]; };
+            CustomerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+                    providedIn: 'root'
+                })
+            ], CustomerService);
+            /***/ 
+        }),
+        /***/ "./src/app/Services/product.service.ts": 
+        /*!*********************************************!*\
+          !*** ./src/app/Services/product.service.ts ***!
+          \*********************************************/
+        /*! exports provided: ProductService */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductService", function () { return ProductService; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _mock_products__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mock-products */ "./src/app/mock-products.ts");
+            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            var ProductService = /** @class */ (function () {
+                function ProductService(http) {
+                    this.http = http;
+                }
+                ProductService.prototype.getProducts = function () {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_products__WEBPACK_IMPORTED_MODULE_2__["PRODUCTS"]);
+                };
+                ProductService.prototype.addProduct = function (product) {
+                    _mock_products__WEBPACK_IMPORTED_MODULE_2__["PRODUCTS"].push(product);
+                    //this.http.put('http://localhost:3000/customer', customer);
+                };
+                return ProductService;
+            }());
+            ProductService.ctorParameters = function () { return [
+                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
+            ]; };
+            ProductService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+                    providedIn: 'root'
+                })
+            ], ProductService);
+            /***/ 
+        }),
+        /***/ "./src/app/Services/purchase.service.ts": 
+        /*!**********************************************!*\
+          !*** ./src/app/Services/purchase.service.ts ***!
+          \**********************************************/
+        /*! exports provided: PurchaseService */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PurchaseService", function () { return PurchaseService; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _mock_purchases__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../mock-purchases */ "./src/app/mock-purchases.ts");
+            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            var PurchaseService = /** @class */ (function () {
+                function PurchaseService(http) {
+                    this.http = http;
+                }
+                PurchaseService.prototype.getPurchases = function () {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"]);
+                };
+                PurchaseService.prototype.getPurchase = function (id) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"].find(function (purchase) { return purchase.id === id; }));
+                };
+                PurchaseService.prototype.addPurchase = function (purchase) {
+                    _mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"].push(purchase);
+                    //this.http.put('http://localhost:3000/customer', customer);
+                };
+                return PurchaseService;
+            }());
+            PurchaseService.ctorParameters = function () { return [
+                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
+            ]; };
+            PurchaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+                    providedIn: 'root'
+                })
+            ], PurchaseService);
+            /***/ 
+        }),
         /***/ "./src/app/add-customer/add-customer.component.css": 
         /*!*********************************************************!*\
           !*** ./src/app/add-customer/add-customer.component.css ***!
@@ -408,13 +547,24 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddCustomerComponent", function () { return AddCustomerComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _customer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../customer */ "./src/app/customer.ts");
-            /* harmony import */ var _customer_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../customer.service */ "./src/app/customer.service.ts");
+            /* harmony import */ var _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/customer.service */ "./src/app/Services/customer.service.ts");
+            /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
             var AddCustomerComponent = /** @class */ (function () {
                 function AddCustomerComponent(customerService) {
                     this.customerService = customerService;
-                    this.model = new _customer__WEBPACK_IMPORTED_MODULE_2__["Customer"](999, "Enter Customer Name", "Enter Product Name", 1, [1012914423], "01/01/2020");
+                    this.model = {
+                        companyName: "",
+                        address: "",
+                        contacts: []
+                    };
+                    this.contactForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
+                        role: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
+                        name: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required),
+                        email: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].pattern('[a-z0-9.@]*')]),
+                        phone_number: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required)
+                    });
                     this.submitted = false;
+                    this.contactAdded = false;
                 }
                 AddCustomerComponent.prototype.ngOnInit = function () {
                 };
@@ -430,10 +580,15 @@
                 AddCustomerComponent.prototype.SaveInfo = function () {
                     this.customerService.addCustomer(this.model);
                 };
+                AddCustomerComponent.prototype.addContact = function () {
+                    this.contactAdded = true;
+                    this.model.contacts.push(this.contactForm.value);
+                    this.contactForm.reset();
+                };
                 return AddCustomerComponent;
             }());
             AddCustomerComponent.ctorParameters = function () { return [
-                { type: _customer_service__WEBPACK_IMPORTED_MODULE_3__["CustomerService"] }
+                { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] }
             ]; };
             AddCustomerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -442,6 +597,145 @@
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./add-customer.component.css */ "./src/app/add-customer/add-customer.component.css")).default]
                 })
             ], AddCustomerComponent);
+            /***/ 
+        }),
+        /***/ "./src/app/add-product/add-product.component.css": 
+        /*!*******************************************************!*\
+          !*** ./src/app/add-product/add-product.component.css ***!
+          \*******************************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkZC1wcm9kdWN0L2FkZC1wcm9kdWN0LmNvbXBvbmVudC5jc3MifQ== */");
+            /***/ 
+        }),
+        /***/ "./src/app/add-product/add-product.component.ts": 
+        /*!******************************************************!*\
+          !*** ./src/app/add-product/add-product.component.ts ***!
+          \******************************************************/
+        /*! exports provided: AddProductComponent */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddProductComponent", function () { return AddProductComponent; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _Services_product_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/product.service */ "./src/app/Services/product.service.ts");
+            var AddProductComponent = /** @class */ (function () {
+                function AddProductComponent(productService) {
+                    this.productService = productService;
+                    this.model = {
+                        name: '',
+                        description: ''
+                    };
+                    this.submitted = false;
+                }
+                AddProductComponent.prototype.ngOnInit = function () {
+                };
+                AddProductComponent.prototype.onSubmit = function () {
+                    this.submitted = true;
+                };
+                AddProductComponent.prototype.SaveInfo = function () {
+                    this.productService.addProduct(this.model);
+                };
+                return AddProductComponent;
+            }());
+            AddProductComponent.ctorParameters = function () { return [
+                { type: _Services_product_service__WEBPACK_IMPORTED_MODULE_2__["ProductService"] }
+            ]; };
+            AddProductComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+                    selector: 'app-add-product',
+                    template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./add-product.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/add-product/add-product.component.html")).default,
+                    styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./add-product.component.css */ "./src/app/add-product/add-product.component.css")).default]
+                })
+            ], AddProductComponent);
+            /***/ 
+        }),
+        /***/ "./src/app/add-purchase/add-purchase.component.css": 
+        /*!*********************************************************!*\
+          !*** ./src/app/add-purchase/add-purchase.component.css ***!
+          \*********************************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkZC1wdXJjaGFzZS9hZGQtcHVyY2hhc2UuY29tcG9uZW50LmNzcyJ9 */");
+            /***/ 
+        }),
+        /***/ "./src/app/add-purchase/add-purchase.component.ts": 
+        /*!********************************************************!*\
+          !*** ./src/app/add-purchase/add-purchase.component.ts ***!
+          \********************************************************/
+        /*! exports provided: AddPurchaseComponent */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddPurchaseComponent", function () { return AddPurchaseComponent; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/customer.service */ "./src/app/Services/customer.service.ts");
+            /* harmony import */ var _Services_purchase_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Services/purchase.service */ "./src/app/Services/purchase.service.ts");
+            /* harmony import */ var _Services_product_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Services/product.service */ "./src/app/Services/product.service.ts");
+            /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+            var AddPurchaseComponent = /** @class */ (function () {
+                function AddPurchaseComponent(customerService, purchaseService, productService) {
+                    this.customerService = customerService;
+                    this.purchaseService = purchaseService;
+                    this.productService = productService;
+                    this.model = {
+                        id: null,
+                        customer_name: "",
+                        product: "",
+                        no_of_licenses: null,
+                        expiration_date: "",
+                        licenses: [],
+                        licenseKeyType: ""
+                    };
+                    this.submitted = false;
+                    this.selections = null;
+                }
+                AddPurchaseComponent.prototype.ngOnInit = function () {
+                    this.getCustomers();
+                    this.getProducts();
+                    this.selections = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
+                        customerEntry: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](this.customers[0].companyName),
+                        productEntry: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](this.products[0].name)
+                    });
+                };
+                AddPurchaseComponent.prototype.onSubmit = function () {
+                    this.model.customer_name = this.selections.value.customerEntry;
+                    this.model.product = this.selections.value.productEntry;
+                    this.submitted = true;
+                };
+                AddPurchaseComponent.prototype.getCustomers = function () {
+                    var _this = this;
+                    this.customerService.getCustomers()
+                        .subscribe(function (customers) { return _this.customers = customers; });
+                };
+                AddPurchaseComponent.prototype.getProducts = function () {
+                    var _this = this;
+                    this.productService.getProducts()
+                        .subscribe(function (products) { return _this.products = products; });
+                };
+                AddPurchaseComponent.prototype.SaveInfo = function () {
+                    this.purchaseService.addPurchase(this.model);
+                };
+                return AddPurchaseComponent;
+            }());
+            AddPurchaseComponent.ctorParameters = function () { return [
+                { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] },
+                { type: _Services_purchase_service__WEBPACK_IMPORTED_MODULE_3__["PurchaseService"] },
+                { type: _Services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"] }
+            ]; };
+            AddPurchaseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+                    selector: 'app-add-purchase',
+                    template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./add-purchase.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/add-purchase/add-purchase.component.html")).default,
+                    styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./add-purchase.component.css */ "./src/app/add-purchase/add-purchase.component.css")).default]
+                })
+            ], AddPurchaseComponent);
             /***/ 
         }),
         /***/ "./src/app/app-routing.module.ts": 
@@ -461,13 +755,17 @@
             /* harmony import */ var _customer_detail_customer_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./customer-detail/customer-detail.component */ "./src/app/customer-detail/customer-detail.component.ts");
             /* harmony import */ var _table_table_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./table/table.component */ "./src/app/table/table.component.ts");
             /* harmony import */ var _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./add-customer/add-customer.component */ "./src/app/add-customer/add-customer.component.ts");
+            /* harmony import */ var _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./add-product/add-product.component */ "./src/app/add-product/add-product.component.ts");
+            /* harmony import */ var _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./add-purchase/add-purchase.component */ "./src/app/add-purchase/add-purchase.component.ts");
             var routes = [
                 { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
                 { path: 'customer', component: _customer_customer_component__WEBPACK_IMPORTED_MODULE_3__["CustomerComponent"] },
                 { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"] },
                 { path: 'detail/:id', component: _customer_detail_customer_detail_component__WEBPACK_IMPORTED_MODULE_5__["CustomerDetailComponent"] },
                 { path: 'table', component: _table_table_component__WEBPACK_IMPORTED_MODULE_6__["TableComponent"] },
-                { path: 'create', component: _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_7__["AddCustomerComponent"] }
+                { path: 'createCustomer', component: _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_7__["AddCustomerComponent"] },
+                { path: 'createProduct', component: _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_8__["AddProductComponent"] },
+                { path: 'createPurchase', component: _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_9__["AddPurchaseComponent"] }
             ];
             var AppRoutingModule = /** @class */ (function () {
                 function AppRoutingModule() {
@@ -540,6 +838,8 @@
             /* harmony import */ var _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./add-customer/add-customer.component */ "./src/app/add-customer/add-customer.component.ts");
             /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
             /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            /* harmony import */ var _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./add-product/add-product.component */ "./src/app/add-product/add-product.component.ts");
+            /* harmony import */ var _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./add-purchase/add-purchase.component */ "./src/app/add-purchase/add-purchase.component.ts");
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -553,13 +853,16 @@
                         _customer_detail_customer_detail_component__WEBPACK_IMPORTED_MODULE_5__["CustomerDetailComponent"],
                         _table_table_component__WEBPACK_IMPORTED_MODULE_7__["TableComponent"],
                         _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"],
-                        _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_9__["AddCustomerComponent"]
+                        _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_9__["AddCustomerComponent"],
+                        _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_12__["AddProductComponent"],
+                        _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_13__["AddPurchaseComponent"]
                     ],
                     imports: [
                         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                         _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
+                        _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"],
                         _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
-                        _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]
+                        _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
                     ],
                     providers: [],
                     bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -591,7 +894,7 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
             /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-            /* harmony import */ var _customer_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../customer.service */ "./src/app/customer.service.ts");
+            /* harmony import */ var _Services_customer_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Services/customer.service */ "./src/app/Services/customer.service.ts");
             var CustomerDetailComponent = /** @class */ (function () {
                 function CustomerDetailComponent(route, customerService, location) {
                     this.route = route;
@@ -614,7 +917,7 @@
             }());
             CustomerDetailComponent.ctorParameters = function () { return [
                 { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-                { type: _customer_service__WEBPACK_IMPORTED_MODULE_4__["CustomerService"] },
+                { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_4__["CustomerService"] },
                 { type: _angular_common__WEBPACK_IMPORTED_MODULE_3__["Location"] }
             ]; };
             tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -627,74 +930,6 @@
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./customer-detail.component.css */ "./src/app/customer-detail/customer-detail.component.css")).default]
                 })
             ], CustomerDetailComponent);
-            /***/ 
-        }),
-        /***/ "./src/app/customer.service.ts": 
-        /*!*************************************!*\
-          !*** ./src/app/customer.service.ts ***!
-          \*************************************/
-        /*! exports provided: CustomerService */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomerService", function () { return CustomerService; });
-            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _mock_customers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mock-customers */ "./src/app/mock-customers.ts");
-            /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-            var CustomerService = /** @class */ (function () {
-                function CustomerService(http) {
-                    this.http = http;
-                }
-                CustomerService.prototype.getCustomers = function () {
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"]);
-                };
-                CustomerService.prototype.getCustomer = function (id) {
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"].find(function (customer) { return customer.id === id; }));
-                };
-                CustomerService.prototype.addCustomer = function (customer) {
-                    _mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"].push(customer);
-                    console.log(customer);
-                    this.http.put('http://localhost:3000/customer', customer).subscribe(function (data) {
-                        console.log(data);
-                    }, function (err) {
-                        console.log(err);
-                    });
-                };
-                return CustomerService;
-            }());
-            CustomerService.ctorParameters = function () { return [
-                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"] }
-            ]; };
-            CustomerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-                    providedIn: 'root'
-                })
-            ], CustomerService);
-            /***/ 
-        }),
-        /***/ "./src/app/customer.ts": 
-        /*!*****************************!*\
-          !*** ./src/app/customer.ts ***!
-          \*****************************/
-        /*! exports provided: Customer */
-        /***/ (function (module, __webpack_exports__, __webpack_require__) {
-            "use strict";
-            __webpack_require__.r(__webpack_exports__);
-            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Customer", function () { return Customer; });
-            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-            var Customer = /** @class */ (function () {
-                function Customer(id, customer_name, product, no_of_licenses, licenses, expiration_date) {
-                    this.id = id;
-                    this.customer_name = customer_name;
-                    this.product = product;
-                    this.no_of_licenses = no_of_licenses;
-                    this.licenses = licenses;
-                    this.expiration_date = expiration_date;
-                }
-                return Customer;
-            }());
             /***/ 
         }),
         /***/ "./src/app/customer/customer.component.css": 
@@ -719,7 +954,7 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomerComponent", function () { return CustomerComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../customer.service */ "./src/app/customer.service.ts");
+            /* harmony import */ var _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/customer.service */ "./src/app/Services/customer.service.ts");
             var CustomerComponent = /** @class */ (function () {
                 function CustomerComponent(customerService) {
                     this.customerService = customerService;
@@ -735,7 +970,7 @@
                 return CustomerComponent;
             }());
             CustomerComponent.ctorParameters = function () { return [
-                { type: _customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] }
+                { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] }
             ]; };
             CustomerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -768,7 +1003,7 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function () { return DashboardComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../customer.service */ "./src/app/customer.service.ts");
+            /* harmony import */ var _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/customer.service */ "./src/app/Services/customer.service.ts");
             var DashboardComponent = /** @class */ (function () {
                 function DashboardComponent(customerService) {
                     this.customerService = customerService;
@@ -785,7 +1020,7 @@
                 return DashboardComponent;
             }());
             DashboardComponent.ctorParameters = function () { return [
-                { type: _customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] }
+                { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] }
             ]; };
             DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -808,12 +1043,103 @@
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             var CUSTOMERS = [
                 {
+                    companyName: 'Dylan Inc',
+                    address: '123 Success st.',
+                    contacts: [
+                        {
+                            role: 'CEO',
+                            name: 'Dylan Thompson',
+                            email: 'dthompson2016@my.fit.edu',
+                            phone_number: '123-456-7891'
+                        },
+                        {
+                            role: 'SalesDood',
+                            name: 'Billy Bob',
+                            email: 'Billybob@email.com',
+                            phone_number: '123-456-7891'
+                        }
+                    ],
+                },
+                {
+                    companyName: 'Kyle Inc',
+                    address: '124 Success st.',
+                    contacts: [
+                        {
+                            role: 'CEO',
+                            name: 'Kyle Ruiz',
+                            email: 'kruiz2015@my.fit.edu',
+                            phone_number: '123-456-7891'
+                        },
+                        {
+                            role: 'IDK tbh',
+                            name: 'Billy Bob',
+                            email: 'Billybob@email.com',
+                            phone_number: '123-456-7891'
+                        }
+                    ],
+                },
+                {
+                    companyName: 'Mohammed Inc',
+                    address: '125 Success st.',
+                    contacts: [
+                        {
+                            role: 'CEO',
+                            name: 'Mohammed Alzadjali',
+                            email: 'kruiz2015@my.fit.edu',
+                            phone_number: '123-456-7891'
+                        },
+                        {
+                            role: 'slave',
+                            name: 'Billy Bob',
+                            email: 'Billybob@email.com',
+                            phone_number: '123-456-7891'
+                        }
+                    ],
+                },
+            ];
+            /***/ 
+        }),
+        /***/ "./src/app/mock-products.ts": 
+        /*!**********************************!*\
+          !*** ./src/app/mock-products.ts ***!
+          \**********************************/
+        /*! exports provided: PRODUCTS */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PRODUCTS", function () { return PRODUCTS; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            var PRODUCTS = [
+                {
+                    name: 'SuperAwesomeSoftware',
+                    description: 'Super Awesome!',
+                },
+                {
+                    name: 'SuperAwesomeSoftware2',
+                    description: 'Super Awesome Too!',
+                }
+            ];
+            /***/ 
+        }),
+        /***/ "./src/app/mock-purchases.ts": 
+        /*!***********************************!*\
+          !*** ./src/app/mock-purchases.ts ***!
+          \***********************************/
+        /*! exports provided: PURCHASES */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PURCHASES", function () { return PURCHASES; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            var PURCHASES = [
+                {
                     id: 1,
                     customer_name: 'Company 1',
                     product: 'Software 1',
                     no_of_licenses: 100,
                     licenses: [1, 2, 3, 100],
-                    expiration_date: '01/01/2020'
+                    expiration_date: '01/01/2020',
+                    licenseKeyType: 'Type 3'
                 },
                 {
                     id: 2,
@@ -821,7 +1147,8 @@
                     product: 'Software 2',
                     no_of_licenses: 1000,
                     licenses: [1, 2, 3, 1000],
-                    expiration_date: '10/31/2019'
+                    expiration_date: '10/31/2019',
+                    licenseKeyType: 'Type 1'
                 },
                 {
                     id: 3,
@@ -829,7 +1156,8 @@
                     product: 'Software 2',
                     no_of_licenses: 100,
                     licenses: [1, 2, 3, 100],
-                    expiration_date: '01/01/2020'
+                    expiration_date: '01/01/2020',
+                    licenseKeyType: 'Type 3'
                 },
                 {
                     id: 4,
@@ -837,7 +1165,8 @@
                     product: 'Software 1',
                     no_of_licenses: 10,
                     licenses: [1, 2, 3],
-                    expiration_date: '01/01/2020'
+                    expiration_date: '01/01/2020',
+                    licenseKeyType: 'Type 2'
                 },
                 {
                     id: 5,
@@ -845,7 +1174,8 @@
                     product: 'Software 3',
                     no_of_licenses: 100,
                     licenses: [1, 2, 3, 100],
-                    expiration_date: '05/01/2020'
+                    expiration_date: '05/01/2020',
+                    licenseKeyType: 'Type 1'
                 },
                 {
                     id: 6,
@@ -853,7 +1183,8 @@
                     product: 'Software 1',
                     no_of_licenses: 100,
                     licenses: [1, 2, 3, 100],
-                    expiration_date: '01/01/2020'
+                    expiration_date: '01/01/2020',
+                    licenseKeyType: 'Type 3'
                 },
                 {
                     id: 7,
@@ -861,7 +1192,8 @@
                     product: 'Software 3',
                     no_of_licenses: 100,
                     licenses: [1, 2, 3, 100],
-                    expiration_date: '01/01/2020'
+                    expiration_date: '01/01/2020',
+                    licenseKeyType: 'Type 2'
                 },
                 {
                     id: 8,
@@ -869,7 +1201,8 @@
                     product: 'Software 1',
                     no_of_licenses: 1000,
                     licenses: [1, 2, 3, 1000],
-                    expiration_date: '10/30/2019'
+                    expiration_date: '10/30/2019',
+                    licenseKeyType: 'Type 1'
                 },
             ];
             /***/ 
@@ -896,24 +1229,34 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableComponent", function () { return TableComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../customer.service */ "./src/app/customer.service.ts");
+            /* harmony import */ var _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/customer.service */ "./src/app/Services/customer.service.ts");
+            /* harmony import */ var _Services_purchase_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Services/purchase.service */ "./src/app/Services/purchase.service.ts");
             var TableComponent = /** @class */ (function () {
-                function TableComponent(customerService) {
+                function TableComponent(customerService, purchaseService) {
                     this.customerService = customerService;
+                    this.purchaseService = purchaseService;
                     this.customers = [];
+                    this.purchases = [];
                 }
                 TableComponent.prototype.ngOnInit = function () {
                     this.getCustomers();
+                    this.getPurchases();
                 };
                 TableComponent.prototype.getCustomers = function () {
                     var _this = this;
                     this.customerService.getCustomers()
                         .subscribe(function (customers) { return _this.customers = customers; });
                 };
+                TableComponent.prototype.getPurchases = function () {
+                    var _this = this;
+                    this.purchaseService.getPurchases()
+                        .subscribe(function (purchases) { return _this.purchases = purchases; });
+                };
                 return TableComponent;
             }());
             TableComponent.ctorParameters = function () { return [
-                { type: _customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] }
+                { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] },
+                { type: _Services_purchase_service__WEBPACK_IMPORTED_MODULE_3__["PurchaseService"] }
             ]; };
             TableComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
