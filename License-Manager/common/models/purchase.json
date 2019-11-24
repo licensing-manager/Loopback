@@ -7,7 +7,23 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "Purchase ID": {
+      "type": "string",
+      "required": true
+    },
+    "Customer": {
+      "type": "string",
+      "required": true
+    },
+    "Product": {
+      "type": "string",
+      "required": true
+    },
+    "Number of Licenses": {
+      "type": "string",
+      "required": true
+    },
+    "Expiration Date": {
       "type": "string",
       "required": true
     }
