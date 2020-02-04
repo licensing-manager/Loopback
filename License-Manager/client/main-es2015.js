@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Enter New Purchase Order</h1>\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"id\">Purchase ID</label>\n                <input type=\"text\" class=\"form-control\" id=\"id\"\n                       required\n                        [(ngModel)]=\"model.id\" name=\"id\"\n                        #id=\"ngModel\">\n                <div [hidden]=\"id.valid || id.pristine\"\n                    class=\"alert alert-danger\">\n                    ID is required\n                </div>\n            </div>\n            <div class=\"form-group\" [formGroup]=\"selections\">\n                <label for=\"cust\">Customer</label>\n                <select class=\"form-control\" formControlName=\"customerEntry\" id=\"cust\">\n                    <option *ngFor=\"let customer of customers\">{{customer.companyName}}</option>\n                </select>\n                <br>\n                <label for=\"product\">Product</label>\n                <select class=\"form-control\" formControlName=\"productEntry\" id=\"product\">\n                    <option *ngFor=\"let product of products\">{{product.name}}</option>\n                </select>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"no_licenses\">Number of Licenses</label>\n                <input type=\"text\" class=\"form-control\" id=\"no_licenses\"\n                       required\n                        [(ngModel)]=\"model.no_of_licenses\" name=\"no_licenses\"\n                        #no_licenses=\"ngModel\">\n                <div [hidden]=\"no_licenses.valid || no_licenses.pristine\"\n                    class=\"alert alert-danger\">\n                    # of licenses is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"exp\">Expiration Date</label>\n                <input type=\"text\" class=\"form-control\" id=\"exp\"\n                       required\n                        [(ngModel)]=\"model.expiration_date\" name=\"exp\"\n                        #exp=\"ngModel\">\n                <div [hidden]=\"exp.valid || exp.pristine\"\n                    class=\"alert alert-danger\">\n                    Expiration Date is required\n                </div>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n        <h2>You submitted the following:</h2>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Id: </div>\n            <div class=\"col-xs-9\"> {{ model.id }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Customer Name: </div>\n            <div class=\"col-xs-9\"> {{ model.customer_name }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Product: </div>\n            <div class=\"col-xs-9\"> {{ model.product }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Number of Licenses: </div>\n            <div class=\"col-xs-9\"> {{ model.no_of_licenses }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Expiration Date: </div>\n            <div class=\"col-xs-9\"> {{ model.expiration_date }}</div>\n        </div>\n        <br>\n        <br>\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\n        <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Purchase</button>\n    </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Enter New Purchase Order</h1>\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"id\">Purchase ID</label>\n                <input type=\"text\" class=\"form-control\" id=\"id\"\n                       required\n                        [(ngModel)]=\"model.purchaseID\" name=\"id\"\n                        #id=\"ngModel\">\n                <div [hidden]=\"id.valid || id.pristine\"\n                    class=\"alert alert-danger\">\n                    ID is required\n                </div>\n            </div>\n            <div class=\"form-group\" [formGroup]=\"selections\">\n                <label for=\"cust\">Customer</label>\n                <select class=\"form-control\" formControlName=\"customerEntry\" id=\"cust\">\n                    <option *ngFor=\"let customer of customers\">{{customer.companyName}}</option>\n                </select>\n                <br>\n                <label for=\"product\">Product</label>\n                <select class=\"form-control\" formControlName=\"productEntry\" id=\"product\">\n                    <option *ngFor=\"let product of products\">{{product.name}}</option>\n                </select>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"no_licenses\">Number of Licenses</label>\n                <input type=\"text\" class=\"form-control\" id=\"no_licenses\"\n                       required\n                        [(ngModel)]=\"model.no_of_licenses\" name=\"no_licenses\"\n                        #no_licenses=\"ngModel\">\n                <div [hidden]=\"no_licenses.valid || no_licenses.pristine\"\n                    class=\"alert alert-danger\">\n                    # of licenses is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"exp\">Expiration Date</label>\n                <input type=\"text\" class=\"form-control\" id=\"exp\"\n                       required\n                        [(ngModel)]=\"model.expiration_date\" name=\"exp\"\n                        #exp=\"ngModel\">\n                <div [hidden]=\"exp.valid || exp.pristine\"\n                    class=\"alert alert-danger\">\n                    Expiration Date is required\n                </div>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n        <h2>You submitted the following:</h2>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Id: </div>\n            <div class=\"col-xs-9\"> {{ model.id }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Customer Name: </div>\n            <div class=\"col-xs-9\"> {{ model.customer_name }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Product: </div>\n            <div class=\"col-xs-9\"> {{ model.product }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Number of Licenses: </div>\n            <div class=\"col-xs-9\"> {{ model.no_of_licenses }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Expiration Date: </div>\n            <div class=\"col-xs-9\"> {{ model.expiration_date }}</div>\n        </div>\n        <br>\n        <br>\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\n        <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Purchase</button>\n    </div>\n</div>\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header\">\n  <a>License Manager</a>\n  <div class=\"header-right\">\n    <a routerLink=\"/dashboard\">Dashboard</a>\n    <a routerLink=\"/table\">Table</a>\n  </div>\n</div>\n<div class=\"content\">\n  <router-outlet></router-outlet>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header\">\n  <a routerLink=\"/table\">License Manager</a>\n  <div class=\"header-right\">\n    <a routerLink=\"/dashboard\">Dashboard</a>\n    <a routerLink=\"/table\">Table</a>\n    <a routerLink=\"/login\">Login</a>\n  </div>\n</div>\n<div class=\"content\">\n  <router-outlet></router-outlet>\n</div>\n");
 
 /***/ }),
 
@@ -110,7 +110,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<h3>Customers With Licenses Expiring Soon</h3>\n<div class=\"grid grid-pad\">\n  <a *ngFor=\"let customer of customers\" class=\"col-1-4\"\n      routerLink=\"/detail/{{customer.id}}\">\n    <div class=\"module hero\">\n      <h4>{{ customer.customer_name }}</h4>\n    </div>\n  </a>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<h3>Customers With Licenses Expiring Soon</h3>\n<div class=\"grid grid-pad\">\n  <a *ngFor=\"let purchase of purchases\" class=\"col-1-4\">\n    <div class=\"module hero\">\n      <h4>{{ purchase.customer_name }}</h4>\n    </div>\n  </a>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Login</h1>\n        <form (ngSubmit)=\"onSubmit()\" #loginForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"name\">Email</label>\n                <input type=\"text\" class=\"form-control\" id=\"name\"\n                       required\n                        [(ngModel)]=\"model.username\" name=\"name\"\n                        #name=\"ngModel\">\n                <div [hidden]=\"name.valid || name.pristine\"\n                    class=\"alert alert-danger\">\n                    Email required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"pass\">Password</label>\n                <input type=\"password\" class=\"form-control\" id=\"pass\"\n                       required\n                        [(ngModel)]=\"model.password\" name=\"pass\"\n                        #pass=\"ngModel\">\n                <div [hidden]=\"pass.valid || pass.pristine\"\n                    class=\"alert alert-danger\">\n                    Password is required\n                </div>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!loginForm.form.valid\">Submit</button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n        <p>Logging in</p>\n        <a routerLink=\"/table\">Go back to table</a>\n    </div>\n</div>\n");
 
 /***/ }),
 
@@ -388,7 +401,8 @@ let CustomerService = class CustomerService {
     }
     addCustomer(customer) {
         _mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"].push(customer);
-        this.http.put('http://localhost:3000/customer', customer);
+        this.http.put('http://localhost:3000/api/customers', customer)
+            .subscribe(response => { });
     }
 };
 CustomerService.ctorParameters = () => [
@@ -429,11 +443,19 @@ let ProductService = class ProductService {
         this.http = http;
     }
     getProducts() {
+        this.http.get('http://localhost:3000/api/products', { observe: 'response' }).subscribe(res => {
+            let response = res.body;
+            this.products = response;
+        });
+        console.log(this.products);
+        //return of(this.products);
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_products__WEBPACK_IMPORTED_MODULE_2__["PRODUCTS"]);
     }
     addProduct(product) {
         _mock_products__WEBPACK_IMPORTED_MODULE_2__["PRODUCTS"].push(product);
-        //this.http.put('http://localhost:3000/customer', customer);
+        this.http.put('http://localhost:3000/api/products', product)
+            .subscribe(response => { });
+        console.log(product);
     }
 };
 ProductService.ctorParameters = () => [
@@ -477,11 +499,14 @@ let PurchaseService = class PurchaseService {
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"]);
     }
     getPurchase(id) {
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"].find(purchase => purchase.id === id));
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"].find(purchase => purchase.purchaseId === id));
     }
     addPurchase(purchase) {
+        purchase.licenseKeyType = "type1";
+        purchase.licenses = [];
         _mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"].push(purchase);
-        //this.http.put('http://localhost:3000/customer', customer);
+        this.http.put('http://localhost:3000/api/purchases', purchase)
+            .subscribe(response => { });
     }
 };
 PurchaseService.ctorParameters = () => [
@@ -679,7 +704,7 @@ let AddPurchaseComponent = class AddPurchaseComponent {
         this.purchaseService = purchaseService;
         this.productService = productService;
         this.model = {
-            id: null,
+            purchaseId: null,
             customer_name: "",
             product: "",
             no_of_licenses: null,
@@ -752,6 +777,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./add-customer/add-customer.component */ "./src/app/add-customer/add-customer.component.ts");
 /* harmony import */ var _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./add-product/add-product.component */ "./src/app/add-product/add-product.component.ts");
 /* harmony import */ var _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./add-purchase/add-purchase.component */ "./src/app/add-purchase/add-purchase.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+
 
 
 
@@ -763,14 +790,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    { path: 'customer', component: _customer_customer_component__WEBPACK_IMPORTED_MODULE_3__["CustomerComponent"] },
+    { path: '', redirectTo: '/table', pathMatch: 'full' },
+    { path: 'customer123', component: _customer_customer_component__WEBPACK_IMPORTED_MODULE_3__["CustomerComponent"] },
     { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"] },
     { path: 'detail/:id', component: _customer_detail_customer_detail_component__WEBPACK_IMPORTED_MODULE_5__["CustomerDetailComponent"] },
     { path: 'table', component: _table_table_component__WEBPACK_IMPORTED_MODULE_6__["TableComponent"] },
     { path: 'createCustomer', component: _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_7__["AddCustomerComponent"] },
     { path: 'createProduct', component: _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_8__["AddProductComponent"] },
-    { path: 'createPurchase', component: _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_9__["AddPurchaseComponent"] }
+    { path: 'createPurchase', component: _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_9__["AddPurchaseComponent"] },
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -853,6 +881,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./add-product/add-product.component */ "./src/app/add-product/add-product.component.ts");
 /* harmony import */ var _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./add-purchase/add-purchase.component */ "./src/app/add-purchase/add-purchase.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+
 
 
 
@@ -880,7 +910,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"],
             _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_9__["AddCustomerComponent"],
             _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_12__["AddProductComponent"],
-            _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_13__["AddPurchaseComponent"]
+            _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_13__["AddPurchaseComponent"],
+            _login_login_component__WEBPACK_IMPORTED_MODULE_14__["LoginComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -1050,25 +1081,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/customer.service */ "./src/app/Services/customer.service.ts");
+/* harmony import */ var _Services_purchase_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/purchase.service */ "./src/app/Services/purchase.service.ts");
 
 
 
 let DashboardComponent = class DashboardComponent {
-    constructor(customerService) {
-        this.customerService = customerService;
-        this.customers = [];
+    constructor(purchaseService) {
+        this.purchaseService = purchaseService;
+        this.purchases = [];
     }
     ngOnInit() {
-        this.getCustomers();
+        this.getPurchases();
     }
-    getCustomers() {
-        this.customerService.getCustomers()
-            .subscribe(customers => this.customers = customers.slice(1, 5));
+    getPurchases() {
+        this.purchaseService.getPurchases()
+            .subscribe(purchases => this.purchases = purchases.slice(1, 5));
     }
 };
 DashboardComponent.ctorParameters = () => [
-    { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] }
+    { type: _Services_purchase_service__WEBPACK_IMPORTED_MODULE_2__["PurchaseService"] }
 ];
 DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1077,6 +1108,68 @@ DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")).default]
     })
 ], DashboardComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/login/login.component.css ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/login/login.component.ts ***!
+  \******************************************/
+/*! exports provided: LoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let LoginComponent = class LoginComponent {
+    constructor(http) {
+        this.http = http;
+        this.model = {
+            username: '',
+            password: ''
+        };
+        this.submitted = false;
+    }
+    ngOnInit() {
+    }
+    onSubmit() {
+        this.submitted = true;
+        console.log(this.model);
+        this.http.post('http://localhost:3000/api/users/login', this.model)
+            .subscribe(response => { console.log(response); });
+    }
+};
+LoginComponent.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-login',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./login.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")).default]
+    })
+], LoginComponent);
 
 
 
@@ -1194,7 +1287,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let PURCHASES = [
     {
-        id: 1,
+        purchaseId: 1,
         customer_name: 'Company 1',
         product: 'Software 1',
         no_of_licenses: 100,
@@ -1203,7 +1296,7 @@ let PURCHASES = [
         licenseKeyType: 'Type 3'
     },
     {
-        id: 2,
+        purchaseId: 2,
         customer_name: 'Company 2',
         product: 'Software 2',
         no_of_licenses: 1000,
@@ -1212,7 +1305,7 @@ let PURCHASES = [
         licenseKeyType: 'Type 1'
     },
     {
-        id: 3,
+        purchaseId: 3,
         customer_name: 'Company 1',
         product: 'Software 2',
         no_of_licenses: 100,
@@ -1221,7 +1314,7 @@ let PURCHASES = [
         licenseKeyType: 'Type 3'
     },
     {
-        id: 4,
+        purchaseId: 4,
         customer_name: 'Company 3',
         product: 'Software 1',
         no_of_licenses: 10,
@@ -1230,7 +1323,7 @@ let PURCHASES = [
         licenseKeyType: 'Type 2'
     },
     {
-        id: 5,
+        purchaseId: 5,
         customer_name: 'Company 4',
         product: 'Software 3',
         no_of_licenses: 100,
@@ -1239,7 +1332,7 @@ let PURCHASES = [
         licenseKeyType: 'Type 1'
     },
     {
-        id: 6,
+        purchaseId: 6,
         customer_name: 'Company 5',
         product: 'Software 1',
         no_of_licenses: 100,
@@ -1248,7 +1341,7 @@ let PURCHASES = [
         licenseKeyType: 'Type 3'
     },
     {
-        id: 7,
+        purchaseId: 7,
         customer_name: 'Company 6',
         product: 'Software 3',
         no_of_licenses: 100,
@@ -1257,7 +1350,7 @@ let PURCHASES = [
         licenseKeyType: 'Type 2'
     },
     {
-        id: 8,
+        purchaseId: 8,
         customer_name: 'Company 2',
         product: 'Software 1',
         no_of_licenses: 1000,
