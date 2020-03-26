@@ -7,23 +7,23 @@
     "validateUpsert": true
   },
   "properties": {
-    "Purchase ID": {
+    "purchaseId": {
+      "type": "number",
+      "required": true
+    },
+    "customer_name": {
       "type": "string",
       "required": true
     },
-    "Customer": {
+    "product": {
       "type": "string",
       "required": true
     },
-    "Product": {
-      "type": "string",
+    "no_of_licenses": {
+      "type": "number",
       "required": true
     },
-    "Number of Licenses": {
-      "type": "string",
-      "required": true
-    },
-    "Expiration Date": {
+    "expiration_date": {
       "type": "string",
       "required": true
     }

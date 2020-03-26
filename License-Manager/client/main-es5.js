@@ -28,7 +28,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Add New Customer</h1>\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"companyName\">Company Name</label>\n                <input type=\"text\" class=\"form-control\" id=\"companyName\"\n                       required\n                        [(ngModel)]=\"model.companyName\" name=\"companyName\"\n                        #companyName=\"ngModel\">\n                <div [hidden]=\"companyName.valid || companyName.pristine\"\n                    class=\"alert alert-danger\">\n                    A company name is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"address\">Address (Please enter full address including city, state, and zip code)</label>\n                <input type=\"text\" class=\"form-control\" id=\"address\"\n                       required\n                        [(ngModel)]=\"model.address\" name=\"address\"\n                        #address=\"ngModel\">\n                <div [hidden]=\"address.valid || address.pristine\"\n                    class=\"alert alert-danger\">\n                    Address is required\n                </div>\n            </div>\n            <br>\n            <div [formGroup]=\"contactForm\">\n                <label>\n                    Contact Role\n                    <input type=\"text\" formControlName=\"role\">\n                </label>\n                <br>\n                <label>\n                    Contact Name\n                    <input type=\"text\" formControlName=\"name\">\n                </label>\n                <br>\n                <label>\n                    Contact Email\n                    <input type=\"text\" formControlName=\"email\">\n                </label>\n                <br>\n                <label>\n                    Contact Phone #\n                    <input type=\"text\" formControlName=\"phone_number\">\n                </label>\n                <br>\n                <button type=\"button\" class=\"btn btn-secondary\" (click)=\"addContact()\"\n                        [disabled]=\"!contactForm.valid\">Add Contact</button>\n            </div>\n            <br><br>\n            <div [hidden]=\"!contactAdded\">\n                <h4>Contacts</h4>\n                <table class=\"table\">\n                    <thead>\n                      <tr>\n                        <th scope=\"col\">Role</th>\n                        <th scope=\"col\">Name</th>\n                        <th scope=\"col\">Email</th>\n                        <th scope=\"col\">Phone Number</th>\n                      </tr>\n                    </thead>\n                    <tbody>\n                      <tr *ngFor=\"let contact of model.contacts\">\n                        <td>{{contact.role}}</td>\n                        <td>{{contact.name}}</td>\n                        <td>{{contact.email}}</td>\n                        <td>{{contact.phone_number}}</td>\n                      </tr>\n                    </tbody>\n                  </table>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!customerForm.form.valid || !contactAdded\">Submit\n            </button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n            <h2>You submitted the following:</h2>\n            <div class=\"row\">\n                <div class=\"col-xs-3\">Company Name: </div>\n                <div class=\"col-xs-9\"> {{ model.companyName }}</div>\n            </div>\n            <br>\n            <div class=\"row\">\n                <div class=\"col-xs-3\">Address: </div>\n                <div class=\"col-xs-9\"> {{ model.address }}</div>\n            </div>\n            <br>\n            <br>\n            <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\n            <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Customer</button>\n    </div>\n</div>\n   ");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div [hidden]=\"submitted\">\r\n        <h1>Add New Customer</h1>\r\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\r\n            <div class=\"form-group\">\r\n                <label for=\"companyName\">Company Name</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"companyName\"\r\n                       required\r\n                        [(ngModel)]=\"model.companyName\" name=\"companyName\"\r\n                        #companyName=\"ngModel\">\r\n                <div [hidden]=\"companyName.valid || companyName.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    A company name is required\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"address\">Address (Please enter full address including city, state, and zip code)</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"address\"\r\n                       required\r\n                        [(ngModel)]=\"model.address\" name=\"address\"\r\n                        #address=\"ngModel\">\r\n                <div [hidden]=\"address.valid || address.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    Address is required\r\n                </div>\r\n            </div>\r\n            <br>\r\n            <div [formGroup]=\"contactForm\">\r\n                <label>\r\n                    Contact Role\r\n                    <input type=\"text\" formControlName=\"role\">\r\n                </label>\r\n                <br>\r\n                <label>\r\n                    Contact Name\r\n                    <input type=\"text\" formControlName=\"name\">\r\n                </label>\r\n                <br>\r\n                <label>\r\n                    Contact Email\r\n                    <input type=\"text\" formControlName=\"email\">\r\n                </label>\r\n                <br>\r\n                <label>\r\n                    Contact Phone #\r\n                    <input type=\"text\" formControlName=\"phone_number\">\r\n                </label>\r\n                <br>\r\n                <button type=\"button\" class=\"btn btn-secondary\" (click)=\"addContact()\"\r\n                        [disabled]=\"!contactForm.valid\">Add Contact</button>\r\n            </div>\r\n            <br><br>\r\n            <div [hidden]=\"!contactAdded\">\r\n                <h4>Contacts</h4>\r\n                <table class=\"table\">\r\n                    <thead>\r\n                      <tr>\r\n                        <th scope=\"col\">Role</th>\r\n                        <th scope=\"col\">Name</th>\r\n                        <th scope=\"col\">Email</th>\r\n                        <th scope=\"col\">Phone Number</th>\r\n                      </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                      <tr *ngFor=\"let contact of model.contacts\">\r\n                        <td>{{contact.role}}</td>\r\n                        <td>{{contact.name}}</td>\r\n                        <td>{{contact.email}}</td>\r\n                        <td>{{contact.phone_number}}</td>\r\n                      </tr>\r\n                    </tbody>\r\n                  </table>\r\n            </div>\r\n            <button type=\"submit\" class=\"btn btn-success\"\r\n            [disabled]=\"!customerForm.form.valid || !contactAdded\">Submit\r\n            </button>\r\n        </form>\r\n    </div>\r\n\r\n    <div [hidden]=\"!submitted\">\r\n            <h2>You submitted the following:</h2>\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-3\">Company Name: </div>\r\n                <div class=\"col-xs-9\"> {{ model.companyName }}</div>\r\n            </div>\r\n            <br>\r\n            <div class=\"row\">\r\n                <div class=\"col-xs-3\">Address: </div>\r\n                <div class=\"col-xs-9\"> {{ model.address }}</div>\r\n            </div>\r\n            <br>\r\n            <br>\r\n            <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\r\n            <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Customer</button>\r\n    </div>\r\n</div>\r\n   ");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/add-product/add-product.component.html": 
@@ -39,7 +39,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Add New Product</h1>\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"name\">Product Name</label>\n                <input type=\"text\" class=\"form-control\" id=\"name\"\n                       required\n                        [(ngModel)]=\"model.name\" name=\"name\"\n                        #name=\"ngModel\">\n                <div [hidden]=\"name.valid || name.pristine\"\n                    class=\"alert alert-danger\">\n                    Product name required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"desc\">Product Description</label>\n                <input type=\"text\" class=\"form-control\" id=\"desc\"\n                       required\n                        [(ngModel)]=\"model.description\" name=\"desc\"\n                        #desc=\"ngModel\">\n                <div [hidden]=\"desc.valid || desc.pristine\"\n                    class=\"alert alert-danger\">\n                    Product Description is required\n                </div>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n        <h2>You submitted the following:</h2>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Product Name: </div>\n            <div class=\"col-xs-9\"> {{ model.name }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Description: </div>\n            <div class=\"col-xs-9\"> {{ model.description }}</div>\n        </div>\n        <br>\n        <br>\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\n        <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Product</button>\n    </div>\n</div>\n\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div [hidden]=\"submitted\">\r\n        <h1>Add New Product</h1>\r\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\r\n            <div class=\"form-group\">\r\n                <label for=\"name\">Product Name</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"name\"\r\n                       required\r\n                        [(ngModel)]=\"model.name\" name=\"name\"\r\n                        #name=\"ngModel\">\r\n                <div [hidden]=\"name.valid || name.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    Product name required\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"desc\">Product Description</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"desc\"\r\n                       required\r\n                        [(ngModel)]=\"model.description\" name=\"desc\"\r\n                        #desc=\"ngModel\">\r\n                <div [hidden]=\"desc.valid || desc.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    Product Description is required\r\n                </div>\r\n            </div>\r\n            <button type=\"submit\" class=\"btn btn-success\"\r\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\r\n        </form>\r\n    </div>\r\n\r\n    <div [hidden]=\"!submitted\">\r\n        <h2>You submitted the following:</h2>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Product Name: </div>\r\n            <div class=\"col-xs-9\"> {{ model.name }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Description: </div>\r\n            <div class=\"col-xs-9\"> {{ model.description }}</div>\r\n        </div>\r\n        <br>\r\n        <br>\r\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\r\n        <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Product</button>\r\n    </div>\r\n</div>\r\n\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/add-purchase/add-purchase.component.html": 
@@ -50,7 +50,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n    <div [hidden]=\"submitted\">\n        <h1>Enter New Purchase Order</h1>\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\n            <div class=\"form-group\">\n                <label for=\"id\">Purchase ID</label>\n                <input type=\"text\" class=\"form-control\" id=\"id\"\n                       required\n                        [(ngModel)]=\"model.id\" name=\"id\"\n                        #id=\"ngModel\">\n                <div [hidden]=\"id.valid || id.pristine\"\n                    class=\"alert alert-danger\">\n                    ID is required\n                </div>\n            </div>\n            <div class=\"form-group\" [formGroup]=\"selections\">\n                <label for=\"cust\">Customer</label>\n                <select class=\"form-control\" formControlName=\"customerEntry\" id=\"cust\">\n                    <option *ngFor=\"let customer of customers\">{{customer.companyName}}</option>\n                </select>\n                <br>\n                <label for=\"product\">Product</label>\n                <select class=\"form-control\" formControlName=\"productEntry\" id=\"product\">\n                    <option *ngFor=\"let product of products\">{{product.name}}</option>\n                </select>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"no_licenses\">Number of Licenses</label>\n                <input type=\"text\" class=\"form-control\" id=\"no_licenses\"\n                       required\n                        [(ngModel)]=\"model.no_of_licenses\" name=\"no_licenses\"\n                        #no_licenses=\"ngModel\">\n                <div [hidden]=\"no_licenses.valid || no_licenses.pristine\"\n                    class=\"alert alert-danger\">\n                    # of licenses is required\n                </div>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"exp\">Expiration Date</label>\n                <input type=\"text\" class=\"form-control\" id=\"exp\"\n                       required\n                        [(ngModel)]=\"model.expiration_date\" name=\"exp\"\n                        #exp=\"ngModel\">\n                <div [hidden]=\"exp.valid || exp.pristine\"\n                    class=\"alert alert-danger\">\n                    Expiration Date is required\n                </div>\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\"\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\n        </form>\n    </div>\n\n    <div [hidden]=\"!submitted\">\n        <h2>You submitted the following:</h2>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Id: </div>\n            <div class=\"col-xs-9\"> {{ model.id }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Customer Name: </div>\n            <div class=\"col-xs-9\"> {{ model.customer_name }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Product: </div>\n            <div class=\"col-xs-9\"> {{ model.product }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Number of Licenses: </div>\n            <div class=\"col-xs-9\"> {{ model.no_of_licenses }}</div>\n        </div>\n        <br>\n        <div class=\"row\">\n            <div class=\"col-xs-3\">Expiration Date: </div>\n            <div class=\"col-xs-9\"> {{ model.expiration_date }}</div>\n        </div>\n        <br>\n        <br>\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\n        <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Purchase</button>\n    </div>\n</div>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div [hidden]=\"submitted\">\r\n        <h1>Enter New Purchase Order</h1>\r\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\r\n            <div class=\"form-group\">\r\n                <label for=\"id\">Purchase ID</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"id\"\r\n                       required\r\n                        [(ngModel)]=\"model.purchaseId\" name=\"id\"\r\n                        #id=\"ngModel\">\r\n                <div [hidden]=\"id.valid || id.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    ID is required\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\" [formGroup]=\"selections\">\r\n                <label for=\"cust\">Customer</label>\r\n                <select class=\"form-control\" formControlName=\"customerEntry\" id=\"cust\">\r\n                    <option *ngFor=\"let customer of customers\">{{customer.companyName}}</option>\r\n                </select>\r\n                <br>\r\n                <label for=\"product\">Product</label>\r\n                <select class=\"form-control\" formControlName=\"productEntry\" id=\"product\">\r\n                    <option *ngFor=\"let product of products\">{{product.name}}</option>\r\n                </select>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"no_licenses\">Number of Licenses</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"no_licenses\"\r\n                       required\r\n                        [(ngModel)]=\"model.no_of_licenses\" name=\"no_licenses\"\r\n                        #no_licenses=\"ngModel\">\r\n                <div [hidden]=\"no_licenses.valid || no_licenses.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    # of licenses is required\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"exp\">Expiration Date</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"exp\"\r\n                       required\r\n                        [(ngModel)]=\"model.expiration_date\" name=\"exp\"\r\n                        #exp=\"ngModel\">\r\n                <div [hidden]=\"exp.valid || exp.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    Expiration Date is required\r\n                </div>\r\n            </div>\r\n            <button type=\"submit\" class=\"btn btn-success\"\r\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\r\n        </form>\r\n    </div>\r\n\r\n    <div [hidden]=\"!submitted\">\r\n        <h2>You submitted the following:</h2>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Id: </div>\r\n            <div class=\"col-xs-9\"> {{ model.id }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Customer Name: </div>\r\n            <div class=\"col-xs-9\"> {{ model.customer_name }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Product: </div>\r\n            <div class=\"col-xs-9\"> {{ model.product }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Number of Licenses: </div>\r\n            <div class=\"col-xs-9\"> {{ model.no_of_licenses }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Expiration Date: </div>\r\n            <div class=\"col-xs-9\"> {{ model.expiration_date }}</div>\r\n        </div>\r\n        <br>\r\n        <br>\r\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\r\n        <button class=\"btn btn-success\" (click)=\"SaveInfo()\" routerLink=\"/table\">Add Purchase</button>\r\n    </div>\r\n</div>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html": 
@@ -61,7 +61,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header\">\n  <a>License Manager</a>\n  <div class=\"header-right\">\n    <a routerLink=\"/dashboard\">Dashboard</a>\n    <a routerLink=\"/table\">Table</a>\n  </div>\n</div>\n<div class=\"content\">\n  <router-outlet></router-outlet>\n</div>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header\">\r\n  <a routerLink=\"/table\">License Manager</a>\r\n  <div class=\"header-right\">\r\n    <a routerLink=\"/dashboard\">Dashboard</a>\r\n    <a routerLink=\"/table\">Table</a>\r\n    <a routerLink=\"/login\">Login</a>\r\n  </div>\r\n</div>\r\n<div class=\"content\">\r\n  <router-outlet></router-outlet>\r\n</div>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/customer-detail/customer-detail.component.html": 
@@ -72,7 +72,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"customer\">\n  <h2>{{ customer.customer_name }} Details</h2>\n  <div><span>Product: </span>{{ customer.product }}</div>\n  <div><span>Expiration Date: </span>{{ customer.expiration_date }}</div>\n  <div><span>Number of Licenses: </span>{{ customer.no_of_licenses }}</div>\n  <button>View Licenses</button>\n  <button (click)=\"goBack()\">Go Back</button>\n</div>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"customer\">\r\n  <h2>{{ customer.customer_name }} Details</h2>\r\n  <div><span>Product: </span>{{ customer.product }}</div>\r\n  <div><span>Expiration Date: </span>{{ customer.expiration_date }}</div>\r\n  <div><span>Number of Licenses: </span>{{ customer.no_of_licenses }}</div>\r\n  <button>View Licenses</button>\r\n  <button (click)=\"goBack()\">Go Back</button>\r\n</div>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/customer/customer.component.html": 
@@ -83,7 +83,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<h2>My Customers</h2>\n\n<ul class = \"customers\">\n  <li *ngFor=\"let customer of customers\">\n    <a routerLink=\"/detail/{{customer.id}}\">\n    <span class=\"badge\">{{ customer.customer_name }}</span> {{ customer.product }}\n    </a>\n  </li>\n</ul>\n\n\n\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<h2>My Customers</h2>\r\n\r\n<ul class = \"customers\">\r\n  <li *ngFor=\"let customer of customers\">\r\n    <a routerLink=\"/detail/{{customer.id}}\">\r\n    <span class=\"badge\">{{ customer.customer_name }}</span> {{ customer.product }}\r\n    </a>\r\n  </li>\r\n</ul>\r\n\r\n\r\n\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/dashboard/dashboard.component.html": 
@@ -94,7 +94,18 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<h3>Customers With Licenses Expiring Soon</h3>\n<div class=\"grid grid-pad\">\n  <a *ngFor=\"let customer of customers\" class=\"col-1-4\"\n      routerLink=\"/detail/{{customer.id}}\">\n    <div class=\"module hero\">\n      <h4>{{ customer.customer_name }}</h4>\n    </div>\n  </a>\n</div>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("<h3>Customers With Licenses Expiring Soon</h3>\r\n<div class=\"grid grid-pad\">\r\n  <a *ngFor=\"let purchase of purchases\" class=\"col-1-4\">\r\n    <div class=\"module hero\">\r\n      <h4>{{ purchase.customer_name }}</h4>\r\n    </div>\r\n  </a>\r\n</div>\r\n");
+            /***/ 
+        }),
+        /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html": 
+        /*!**********************************************************************************!*\
+          !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html ***!
+          \**********************************************************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div [hidden]=\"submitted\">\r\n        <h1>Login</h1>\r\n        <form (ngSubmit)=\"onSubmit()\" #loginForm=\"ngForm\">\r\n            <div class=\"form-group\">\r\n                <label for=\"name\">Email</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"name\"\r\n                       required\r\n                        [(ngModel)]=\"model.username\" name=\"name\"\r\n                        #name=\"ngModel\">\r\n                <div [hidden]=\"name.valid || name.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    Email required\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"pass\">Password</label>\r\n                <input type=\"password\" class=\"form-control\" id=\"pass\"\r\n                       required\r\n                        [(ngModel)]=\"model.password\" name=\"pass\"\r\n                        #pass=\"ngModel\">\r\n                <div [hidden]=\"pass.valid || pass.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    Password is required\r\n                </div>\r\n            </div>\r\n            <button type=\"submit\" class=\"btn btn-success\"\r\n            [disabled]=\"!loginForm.form.valid\">Submit</button>\r\n        </form>\r\n    </div>\r\n\r\n    <div [hidden]=\"!submitted\">\r\n        <p>Logging in</p>\r\n        <a routerLink=\"/table\">Go back to table</a>\r\n    </div>\r\n</div>\r\n");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/table/table.component.html": 
@@ -105,7 +116,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<h6 style=\"float:left;\" class=\"pb-2 mb-0\">Licenses</h6>\n\n<div class=\"dropdown\">\n  <button class=\"btn btn-sm btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" data-toggle=\"dropdown\" id=\"dropdownMenu\" aria-haspopup=\"true\" aria-expanded=\"false\">\n    Add New\n  </button>\n  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu\">\n    <a class=\"dropdown-item\" routerLink=\"/createCustomer\">Customer</a>\n    <a class=\"dropdown-item\" routerLink=\"/createProduct\">Product</a>\n    <a class=\"dropdown-item\" routerLink=\"/createPurchase\">Purchase Order</a>\n  </div>\n</div>\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th scope=\"col\">Customer</th>\n          <th scope=\"col\">Product</th>\n          <th scope=\"col\">Expiration Date</th>\n          <th scope=\"col\">Number of Licenses</th>\n          <th scope=\"col\">License Type</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let purchase of purchases\">\n          <td>{{purchase.customer_name}}</td>\n          <td>{{purchase.product}}</td>\n          <td>{{purchase.expiration_date}}</td>\n          <td>{{purchase.no_of_licenses}}</td>\n          <td>{{purchase.licenseKeyType}}</td>\n        </tr>\n      </tbody>\n    </table>\n");
+            /* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"dropdown\">\r\n  <button class=\"btn btn-sm btn-secondary dropdown-toggle\" style=\"float:right;margin-top:15px; margin-right:15px;\" \r\n        type=\"button\" data-toggle=\"dropdown\" id=\"dropdownMenu\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n    Add New\r\n  </button>\r\n  <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenu\">\r\n    <a class=\"dropdown-item\" routerLink=\"/createCustomer\">Customer</a>\r\n    <a class=\"dropdown-item\" routerLink=\"/createProduct\">Product</a>\r\n    <a class=\"dropdown-item\" routerLink=\"/createPurchase\">Purchase Order</a>\r\n  </div>\r\n</div>\r\n<div>\r\n  <mat-form-field fxFlex=\"40%\">\r\n    <input matInput type=\"text\" (keyup)=\"doFilter($event.target.value)\" placeholder=\"Filter\">\r\n  </mat-form-field>\r\n</div>\r\n\r\n<mat-table style=\"margin-top:50px\" [dataSource]=\"dataSource\" class=\"mat-elevation-z8\" matSort>\r\n  <ng-container matColumnDef=\"customer_name\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> Customer </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let purchase\">{{ purchase.customer_name }}</mat-cell>\r\n  </ng-container>\r\n  <ng-container matColumnDef=\"product\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> Product </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let purchase\">{{ purchase.product }}</mat-cell>\r\n  </ng-container>\r\n  <ng-container matColumnDef=\"expiration_date\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> Expiration Date </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let purchase\">{{ purchase.expiration_date }}</mat-cell>\r\n  </ng-container>\r\n  <ng-container matColumnDef=\"no_of_licenses\">\r\n    <mat-header-cell *matHeaderCellDef mat-sort-header> No. of Licenses </mat-header-cell>\r\n    <mat-cell *matCellDef=\"let purchase\">{{ purchase.no_of_licenses }}</mat-cell>\r\n  </ng-container>\r\n\r\n  <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n  <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n</mat-table>\r\n\r\n<mat-paginator [pageSize]=\"10\" [pageSizeOptions]=\"[10, 20, 50, 100]\"></mat-paginator>\r\n\r\n\r\n\r\n");
             /***/ 
         }),
         /***/ "./node_modules/tslib/tslib.es6.js": 
@@ -427,14 +438,21 @@
                     this.http = http;
                 }
                 CustomerService.prototype.getCustomers = function () {
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"]);
+                    var _this = this;
+                    this.http.get('http://localhost:3000/api/customers', { observe: 'response' }).subscribe(function (res) {
+                        var response = res.body;
+                        _this.customers = response;
+                    });
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(this.customers);
+                    //return of(CUSTOMERS);
                 };
                 CustomerService.prototype.getCustomer = function (id) {
                     return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"].find(function (customer) { return customer.id === id; }));
                 };
                 CustomerService.prototype.addCustomer = function (customer) {
                     _mock_customers__WEBPACK_IMPORTED_MODULE_2__["CUSTOMERS"].push(customer);
-                    this.http.put('http://localhost:3000/customer', customer);
+                    this.http.put('http://localhost:3000/api/customers', customer)
+                        .subscribe(function (response) { });
                 };
                 return CustomerService;
             }());
@@ -467,11 +485,20 @@
                     this.http = http;
                 }
                 ProductService.prototype.getProducts = function () {
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_products__WEBPACK_IMPORTED_MODULE_2__["PRODUCTS"]);
+                    var _this = this;
+                    this.http.get('http://localhost:3000/api/products', { observe: 'response' }).subscribe(function (res) {
+                        var response = res.body;
+                        _this.products = response;
+                    });
+                    console.log(this.products);
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(this.products);
+                    //return of(PRODUCTS);
                 };
                 ProductService.prototype.addProduct = function (product) {
                     _mock_products__WEBPACK_IMPORTED_MODULE_2__["PRODUCTS"].push(product);
-                    //this.http.put('http://localhost:3000/customer', customer);
+                    this.http.put('http://localhost:3000/api/products', product)
+                        .subscribe(function (response) { });
+                    console.log(product);
                 };
                 return ProductService;
             }());
@@ -504,14 +531,25 @@
                     this.http = http;
                 }
                 PurchaseService.prototype.getPurchases = function () {
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"]);
+                    var _this = this;
+                    this.http.get('http://localhost:3000/api/purchases', { observe: 'response' }).subscribe(function (res) {
+                        var response = res.body;
+                        _this.purchases = response;
+                    });
+                    console.log(this.purchases);
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(this.purchases);
+                    //return of(PURCHASES);
                 };
                 PurchaseService.prototype.getPurchase = function (id) {
-                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"].find(function (purchase) { return purchase.id === id; }));
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(_mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"].find(function (purchase) { return purchase.purchaseId === id; }));
                 };
                 PurchaseService.prototype.addPurchase = function (purchase) {
+                    purchase.licenseKeyType = "type1";
+                    purchase.licenses = [];
+                    console.log(purchase);
                     _mock_purchases__WEBPACK_IMPORTED_MODULE_2__["PURCHASES"].push(purchase);
-                    //this.http.put('http://localhost:3000/customer', customer);
+                    this.http.put('http://localhost:3000/api/purchases', purchase)
+                        .subscribe(function (response) { });
                 };
                 return PurchaseService;
             }());
@@ -533,7 +571,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("div button {\n    margin-right:20px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRkLWN1c3RvbWVyL2FkZC1jdXN0b21lci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksaUJBQWlCO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYWRkLWN1c3RvbWVyL2FkZC1jdXN0b21lci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiZGl2IGJ1dHRvbiB7XG4gICAgbWFyZ2luLXJpZ2h0OjIwcHg7XG59XG4iXX0= */");
+            /* harmony default export */ __webpack_exports__["default"] = ("div button {\r\n    margin-right:20px;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRkLWN1c3RvbWVyL2FkZC1jdXN0b21lci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksaUJBQWlCO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYWRkLWN1c3RvbWVyL2FkZC1jdXN0b21lci5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiZGl2IGJ1dHRvbiB7XHJcbiAgICBtYXJnaW4tcmlnaHQ6MjBweDtcclxufVxyXG4iXX0= */");
             /***/ 
         }),
         /***/ "./src/app/add-customer/add-customer.component.ts": 
@@ -685,7 +723,7 @@
                     this.purchaseService = purchaseService;
                     this.productService = productService;
                     this.model = {
-                        id: null,
+                        purchaseId: null,
                         customer_name: "",
                         product: "",
                         no_of_licenses: null,
@@ -720,6 +758,7 @@
                         .subscribe(function (products) { return _this.products = products; });
                 };
                 AddPurchaseComponent.prototype.SaveInfo = function () {
+                    console.log(this.model);
                     this.purchaseService.addPurchase(this.model);
                 };
                 return AddPurchaseComponent;
@@ -757,15 +796,17 @@
             /* harmony import */ var _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./add-customer/add-customer.component */ "./src/app/add-customer/add-customer.component.ts");
             /* harmony import */ var _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./add-product/add-product.component */ "./src/app/add-product/add-product.component.ts");
             /* harmony import */ var _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./add-purchase/add-purchase.component */ "./src/app/add-purchase/add-purchase.component.ts");
+            /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
             var routes = [
-                { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-                { path: 'customer', component: _customer_customer_component__WEBPACK_IMPORTED_MODULE_3__["CustomerComponent"] },
+                { path: '', redirectTo: '/table', pathMatch: 'full' },
+                { path: 'customer123', component: _customer_customer_component__WEBPACK_IMPORTED_MODULE_3__["CustomerComponent"] },
                 { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"] },
                 { path: 'detail/:id', component: _customer_detail_customer_detail_component__WEBPACK_IMPORTED_MODULE_5__["CustomerDetailComponent"] },
                 { path: 'table', component: _table_table_component__WEBPACK_IMPORTED_MODULE_6__["TableComponent"] },
                 { path: 'createCustomer', component: _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_7__["AddCustomerComponent"] },
                 { path: 'createProduct', component: _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_8__["AddProductComponent"] },
-                { path: 'createPurchase', component: _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_9__["AddPurchaseComponent"] }
+                { path: 'createPurchase', component: _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_9__["AddPurchaseComponent"] },
+                { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"] }
             ];
             var AppRoutingModule = /** @class */ (function () {
                 function AppRoutingModule() {
@@ -829,17 +870,21 @@
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-            /* harmony import */ var _customer_customer_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./customer/customer.component */ "./src/app/customer/customer.component.ts");
-            /* harmony import */ var _customer_detail_customer_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./customer-detail/customer-detail.component */ "./src/app/customer-detail/customer-detail.component.ts");
-            /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-            /* harmony import */ var _table_table_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./table/table.component */ "./src/app/table/table.component.ts");
-            /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-            /* harmony import */ var _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./add-customer/add-customer.component */ "./src/app/add-customer/add-customer.component.ts");
-            /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-            /* harmony import */ var _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./add-product/add-product.component */ "./src/app/add-product/add-product.component.ts");
-            /* harmony import */ var _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./add-purchase/add-purchase.component */ "./src/app/add-purchase/add-purchase.component.ts");
+            /* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/esm2015/core.js");
+            /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+            /* harmony import */ var _customer_customer_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./customer/customer.component */ "./src/app/customer/customer.component.ts");
+            /* harmony import */ var _customer_detail_customer_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./customer-detail/customer-detail.component */ "./src/app/customer-detail/customer-detail.component.ts");
+            /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+            /* harmony import */ var _table_table_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./table/table.component */ "./src/app/table/table.component.ts");
+            /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+            /* harmony import */ var _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./add-customer/add-customer.component */ "./src/app/add-customer/add-customer.component.ts");
+            /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            /* harmony import */ var _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./add-product/add-product.component */ "./src/app/add-product/add-product.component.ts");
+            /* harmony import */ var _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./add-purchase/add-purchase.component */ "./src/app/add-purchase/add-purchase.component.ts");
+            /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+            /* harmony import */ var _material_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./material-module */ "./src/app/material-module.ts");
+            /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -848,24 +893,29 @@
             AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
                     declarations: [
-                        _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                        _customer_customer_component__WEBPACK_IMPORTED_MODULE_4__["CustomerComponent"],
-                        _customer_detail_customer_detail_component__WEBPACK_IMPORTED_MODULE_5__["CustomerDetailComponent"],
-                        _table_table_component__WEBPACK_IMPORTED_MODULE_7__["TableComponent"],
-                        _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"],
-                        _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_9__["AddCustomerComponent"],
-                        _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_12__["AddProductComponent"],
-                        _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_13__["AddPurchaseComponent"]
+                        _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+                        _customer_customer_component__WEBPACK_IMPORTED_MODULE_5__["CustomerComponent"],
+                        _customer_detail_customer_detail_component__WEBPACK_IMPORTED_MODULE_6__["CustomerDetailComponent"],
+                        _table_table_component__WEBPACK_IMPORTED_MODULE_8__["TableComponent"],
+                        _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_9__["DashboardComponent"],
+                        _add_customer_add_customer_component__WEBPACK_IMPORTED_MODULE_10__["AddCustomerComponent"],
+                        _add_product_add_product_component__WEBPACK_IMPORTED_MODULE_13__["AddProductComponent"],
+                        _add_purchase_add_purchase_component__WEBPACK_IMPORTED_MODULE_14__["AddPurchaseComponent"],
+                        _login_login_component__WEBPACK_IMPORTED_MODULE_15__["LoginComponent"]
                     ],
                     imports: [
                         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                        _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
-                        _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"],
-                        _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
-                        _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"],
+                        _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
+                        _angular_forms__WEBPACK_IMPORTED_MODULE_11__["ReactiveFormsModule"],
+                        _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
+                        _angular_common_http__WEBPACK_IMPORTED_MODULE_12__["HttpClientModule"],
+                        _angular_material_core__WEBPACK_IMPORTED_MODULE_3__["MatNativeDateModule"],
+                        _material_module__WEBPACK_IMPORTED_MODULE_16__["DemoMaterialModule"],
+                        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"]
                     ],
+                    exports: [],
                     providers: [],
-                    bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+                    bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
                 })
             ], AppModule);
             /***/ 
@@ -1003,24 +1053,24 @@
             /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function () { return DashboardComponent; });
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-            /* harmony import */ var _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/customer.service */ "./src/app/Services/customer.service.ts");
+            /* harmony import */ var _Services_purchase_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/purchase.service */ "./src/app/Services/purchase.service.ts");
             var DashboardComponent = /** @class */ (function () {
-                function DashboardComponent(customerService) {
-                    this.customerService = customerService;
-                    this.customers = [];
+                function DashboardComponent(purchaseService) {
+                    this.purchaseService = purchaseService;
+                    this.purchases = [];
                 }
                 DashboardComponent.prototype.ngOnInit = function () {
-                    this.getCustomers();
+                    this.getPurchases();
                 };
-                DashboardComponent.prototype.getCustomers = function () {
+                DashboardComponent.prototype.getPurchases = function () {
                     var _this = this;
-                    this.customerService.getCustomers()
-                        .subscribe(function (customers) { return _this.customers = customers.slice(1, 5); });
+                    this.purchaseService.getPurchases()
+                        .subscribe(function (purchases) { return _this.purchases = purchases.slice(1, 5); });
                 };
                 return DashboardComponent;
             }());
             DashboardComponent.ctorParameters = function () { return [
-                { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] }
+                { type: _Services_purchase_service__WEBPACK_IMPORTED_MODULE_2__["PurchaseService"] }
             ]; };
             DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1029,6 +1079,172 @@
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")).default]
                 })
             ], DashboardComponent);
+            /***/ 
+        }),
+        /***/ "./src/app/login/login.component.css": 
+        /*!*******************************************!*\
+          !*** ./src/app/login/login.component.css ***!
+          \*******************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MifQ== */");
+            /***/ 
+        }),
+        /***/ "./src/app/login/login.component.ts": 
+        /*!******************************************!*\
+          !*** ./src/app/login/login.component.ts ***!
+          \******************************************/
+        /*! exports provided: LoginComponent */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function () { return LoginComponent; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            var LoginComponent = /** @class */ (function () {
+                function LoginComponent(http) {
+                    this.http = http;
+                    this.model = {
+                        username: '',
+                        password: ''
+                    };
+                    this.submitted = false;
+                }
+                LoginComponent.prototype.ngOnInit = function () {
+                };
+                LoginComponent.prototype.onSubmit = function () {
+                    this.submitted = true;
+                    console.log(this.model);
+                    this.http.post('http://localhost:3000/api/users/login', this.model)
+                        .subscribe(function (response) { console.log(response.userId); });
+                };
+                return LoginComponent;
+            }());
+            LoginComponent.ctorParameters = function () { return [
+                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+            ]; };
+            LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+                    selector: 'app-login',
+                    template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./login.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/login/login.component.html")).default,
+                    styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")).default]
+                })
+            ], LoginComponent);
+            /***/ 
+        }),
+        /***/ "./src/app/material-module.ts": 
+        /*!************************************!*\
+          !*** ./src/app/material-module.ts ***!
+          \************************************/
+        /*! exports provided: DemoMaterialModule */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DemoMaterialModule", function () { return DemoMaterialModule; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+            /* harmony import */ var _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/a11y */ "./node_modules/@angular/cdk/esm2015/a11y.js");
+            /* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/esm2015/drag-drop.js");
+            /* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/esm2015/portal.js");
+            /* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/esm2015/scrolling.js");
+            /* harmony import */ var _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/cdk/stepper */ "./node_modules/@angular/cdk/esm2015/stepper.js");
+            /* harmony import */ var _angular_cdk_table__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/cdk/table */ "./node_modules/@angular/cdk/esm2015/table.js");
+            /* harmony import */ var _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/cdk/tree */ "./node_modules/@angular/cdk/esm2015/tree.js");
+            /* harmony import */ var _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/autocomplete */ "./node_modules/@angular/material/esm2015/autocomplete.js");
+            /* harmony import */ var _angular_material_badge__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/badge */ "./node_modules/@angular/material/esm2015/badge.js");
+            /* harmony import */ var _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/bottom-sheet */ "./node_modules/@angular/material/esm2015/bottom-sheet.js");
+            /* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm2015/button.js");
+            /* harmony import */ var _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/button-toggle */ "./node_modules/@angular/material/esm2015/button-toggle.js");
+            /* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm2015/card.js");
+            /* harmony import */ var _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/checkbox */ "./node_modules/@angular/material/esm2015/checkbox.js");
+            /* harmony import */ var _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/chips */ "./node_modules/@angular/material/esm2015/chips.js");
+            /* harmony import */ var _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/stepper */ "./node_modules/@angular/material/esm2015/stepper.js");
+            /* harmony import */ var _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/datepicker */ "./node_modules/@angular/material/esm2015/datepicker.js");
+            /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm2015/dialog.js");
+            /* harmony import */ var _angular_material_divider__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/divider */ "./node_modules/@angular/material/esm2015/divider.js");
+            /* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/esm2015/expansion.js");
+            /* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! @angular/material/grid-list */ "./node_modules/@angular/material/esm2015/grid-list.js");
+            /* harmony import */ var _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! @angular/material/icon */ "./node_modules/@angular/material/esm2015/icon.js");
+            /* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/esm2015/input.js");
+            /* harmony import */ var _angular_material_list__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/material/list */ "./node_modules/@angular/material/esm2015/list.js");
+            /* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm2015/menu.js");
+            /* harmony import */ var _angular_material_core__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/material/core */ "./node_modules/@angular/material/esm2015/core.js");
+            /* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
+            /* harmony import */ var _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! @angular/material/progress-bar */ "./node_modules/@angular/material/esm2015/progress-bar.js");
+            /* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm2015/progress-spinner.js");
+            /* harmony import */ var _angular_material_radio__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! @angular/material/radio */ "./node_modules/@angular/material/esm2015/radio.js");
+            /* harmony import */ var _angular_material_select__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! @angular/material/select */ "./node_modules/@angular/material/esm2015/select.js");
+            /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/esm2015/sidenav.js");
+            /* harmony import */ var _angular_material_slider__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! @angular/material/slider */ "./node_modules/@angular/material/esm2015/slider.js");
+            /* harmony import */ var _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! @angular/material/slide-toggle */ "./node_modules/@angular/material/esm2015/slide-toggle.js");
+            /* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/esm2015/snack-bar.js");
+            /* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm2015/sort.js");
+            /* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
+            /* harmony import */ var _angular_material_tabs__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! @angular/material/tabs */ "./node_modules/@angular/material/esm2015/tabs.js");
+            /* harmony import */ var _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! @angular/material/toolbar */ "./node_modules/@angular/material/esm2015/toolbar.js");
+            /* harmony import */ var _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! @angular/material/tooltip */ "./node_modules/@angular/material/esm2015/tooltip.js");
+            /* harmony import */ var _angular_material_tree__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! @angular/material/tree */ "./node_modules/@angular/material/esm2015/tree.js");
+            /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+            var DemoMaterialModule = /** @class */ (function () {
+                function DemoMaterialModule() {
+                }
+                return DemoMaterialModule;
+            }());
+            DemoMaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+                    exports: [
+                        _angular_cdk_a11y__WEBPACK_IMPORTED_MODULE_2__["A11yModule"],
+                        _angular_cdk_stepper__WEBPACK_IMPORTED_MODULE_6__["CdkStepperModule"],
+                        _angular_cdk_table__WEBPACK_IMPORTED_MODULE_7__["CdkTableModule"],
+                        _angular_cdk_tree__WEBPACK_IMPORTED_MODULE_8__["CdkTreeModule"],
+                        _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_3__["DragDropModule"],
+                        _angular_material_autocomplete__WEBPACK_IMPORTED_MODULE_9__["MatAutocompleteModule"],
+                        _angular_material_badge__WEBPACK_IMPORTED_MODULE_10__["MatBadgeModule"],
+                        _angular_material_bottom_sheet__WEBPACK_IMPORTED_MODULE_11__["MatBottomSheetModule"],
+                        _angular_material_button__WEBPACK_IMPORTED_MODULE_12__["MatButtonModule"],
+                        _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_13__["MatButtonToggleModule"],
+                        _angular_material_card__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"],
+                        _angular_material_checkbox__WEBPACK_IMPORTED_MODULE_15__["MatCheckboxModule"],
+                        _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__["MatChipsModule"],
+                        _angular_material_stepper__WEBPACK_IMPORTED_MODULE_17__["MatStepperModule"],
+                        _angular_material_datepicker__WEBPACK_IMPORTED_MODULE_18__["MatDatepickerModule"],
+                        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_19__["MatDialogModule"],
+                        _angular_material_divider__WEBPACK_IMPORTED_MODULE_20__["MatDividerModule"],
+                        _angular_material_expansion__WEBPACK_IMPORTED_MODULE_21__["MatExpansionModule"],
+                        _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_22__["MatGridListModule"],
+                        _angular_material_icon__WEBPACK_IMPORTED_MODULE_23__["MatIconModule"],
+                        _angular_material_input__WEBPACK_IMPORTED_MODULE_24__["MatInputModule"],
+                        _angular_material_list__WEBPACK_IMPORTED_MODULE_25__["MatListModule"],
+                        _angular_material_menu__WEBPACK_IMPORTED_MODULE_26__["MatMenuModule"],
+                        _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatNativeDateModule"],
+                        _angular_material_paginator__WEBPACK_IMPORTED_MODULE_28__["MatPaginatorModule"],
+                        _angular_material_progress_bar__WEBPACK_IMPORTED_MODULE_29__["MatProgressBarModule"],
+                        _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_30__["MatProgressSpinnerModule"],
+                        _angular_material_radio__WEBPACK_IMPORTED_MODULE_31__["MatRadioModule"],
+                        _angular_material_core__WEBPACK_IMPORTED_MODULE_27__["MatRippleModule"],
+                        _angular_material_select__WEBPACK_IMPORTED_MODULE_32__["MatSelectModule"],
+                        _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_33__["MatSidenavModule"],
+                        _angular_material_slider__WEBPACK_IMPORTED_MODULE_34__["MatSliderModule"],
+                        _angular_material_slide_toggle__WEBPACK_IMPORTED_MODULE_35__["MatSlideToggleModule"],
+                        _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_36__["MatSnackBarModule"],
+                        _angular_material_sort__WEBPACK_IMPORTED_MODULE_37__["MatSortModule"],
+                        _angular_material_table__WEBPACK_IMPORTED_MODULE_38__["MatTableModule"],
+                        _angular_material_tabs__WEBPACK_IMPORTED_MODULE_39__["MatTabsModule"],
+                        _angular_material_toolbar__WEBPACK_IMPORTED_MODULE_40__["MatToolbarModule"],
+                        _angular_material_tooltip__WEBPACK_IMPORTED_MODULE_41__["MatTooltipModule"],
+                        _angular_material_tree__WEBPACK_IMPORTED_MODULE_42__["MatTreeModule"],
+                        _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__["PortalModule"],
+                        _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_5__["ScrollingModule"],
+                        _angular_material__WEBPACK_IMPORTED_MODULE_43__["MatFormFieldModule"]
+                    ]
+                })
+            ], DemoMaterialModule);
+            /**  Copyright 2019 Google LLC. All Rights Reserved.
+                Use of this source code is governed by an MIT-style license that
+                can be found in the LICENSE file at http://angular.io/license */
             /***/ 
         }),
         /***/ "./src/app/mock-customers.ts": 
@@ -1133,7 +1349,7 @@
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             var PURCHASES = [
                 {
-                    id: 1,
+                    purchaseId: 1,
                     customer_name: 'Company 1',
                     product: 'Software 1',
                     no_of_licenses: 100,
@@ -1142,7 +1358,7 @@
                     licenseKeyType: 'Type 3'
                 },
                 {
-                    id: 2,
+                    purchaseId: 2,
                     customer_name: 'Company 2',
                     product: 'Software 2',
                     no_of_licenses: 1000,
@@ -1151,7 +1367,7 @@
                     licenseKeyType: 'Type 1'
                 },
                 {
-                    id: 3,
+                    purchaseId: 3,
                     customer_name: 'Company 1',
                     product: 'Software 2',
                     no_of_licenses: 100,
@@ -1160,7 +1376,7 @@
                     licenseKeyType: 'Type 3'
                 },
                 {
-                    id: 4,
+                    purchaseId: 4,
                     customer_name: 'Company 3',
                     product: 'Software 1',
                     no_of_licenses: 10,
@@ -1169,7 +1385,7 @@
                     licenseKeyType: 'Type 2'
                 },
                 {
-                    id: 5,
+                    purchaseId: 5,
                     customer_name: 'Company 4',
                     product: 'Software 3',
                     no_of_licenses: 100,
@@ -1178,7 +1394,7 @@
                     licenseKeyType: 'Type 1'
                 },
                 {
-                    id: 6,
+                    purchaseId: 6,
                     customer_name: 'Company 5',
                     product: 'Software 1',
                     no_of_licenses: 100,
@@ -1187,7 +1403,7 @@
                     licenseKeyType: 'Type 3'
                 },
                 {
-                    id: 7,
+                    purchaseId: 7,
                     customer_name: 'Company 6',
                     product: 'Software 3',
                     no_of_licenses: 100,
@@ -1196,7 +1412,7 @@
                     licenseKeyType: 'Type 2'
                 },
                 {
-                    id: 8,
+                    purchaseId: 8,
                     customer_name: 'Company 2',
                     product: 'Software 1',
                     no_of_licenses: 1000,
@@ -1231,16 +1447,28 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Services/customer.service */ "./src/app/Services/customer.service.ts");
             /* harmony import */ var _Services_purchase_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Services/purchase.service */ "./src/app/Services/purchase.service.ts");
+            /* harmony import */ var _angular_material_table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/table */ "./node_modules/@angular/material/esm2015/table.js");
+            /* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm2015/sort.js");
+            /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
             var TableComponent = /** @class */ (function () {
                 function TableComponent(customerService, purchaseService) {
+                    var _this = this;
                     this.customerService = customerService;
                     this.purchaseService = purchaseService;
                     this.customers = [];
                     this.purchases = [];
+                    this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_4__["MatTableDataSource"]();
+                    this.displayedColumns = [];
+                    this.doFilter = function (value) {
+                        _this.dataSource.filter = value.trim().toLocaleLowerCase();
+                    };
                 }
                 TableComponent.prototype.ngOnInit = function () {
                     this.getCustomers();
                     this.getPurchases();
+                    this.dataSource.data = this.purchases;
+                    this.displayedColumns = ['customer_name', 'product', 'no_of_licenses', 'expiration_date'];
+                    this.dataSource.paginator = this.paginator;
                 };
                 TableComponent.prototype.getCustomers = function () {
                     var _this = this;
@@ -1252,12 +1480,21 @@
                     this.purchaseService.getPurchases()
                         .subscribe(function (purchases) { return _this.purchases = purchases; });
                 };
+                TableComponent.prototype.ngAfterViewInit = function () {
+                    this.dataSource.sort = this.sort;
+                };
                 return TableComponent;
             }());
             TableComponent.ctorParameters = function () { return [
                 { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] },
                 { type: _Services_purchase_service__WEBPACK_IMPORTED_MODULE_3__["PurchaseService"] }
             ]; };
+            tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material_sort__WEBPACK_IMPORTED_MODULE_5__["MatSort"], { static: true })
+            ], TableComponent.prototype, "sort", void 0);
+            tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+                Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_6__["MatPaginator"], { static: true })
+            ], TableComponent.prototype, "paginator", void 0);
             TableComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
                     selector: 'app-table',
@@ -1319,7 +1556,7 @@
           \***************************/
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
-            module.exports = __webpack_require__(/*! /Users/kylefruiz/Desktop/License Manager/Angular/src/main.ts */ "./src/main.ts");
+            module.exports = __webpack_require__(/*! C:\Users\dthom\License Manager\License Manager Git\Angular\src\main.ts */ "./src/main.ts");
             /***/ 
         })
     }, [[0, "runtime", "vendor"]]]);
