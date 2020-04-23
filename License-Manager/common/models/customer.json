@@ -16,21 +16,23 @@
       "required": true
     },
     "Contact": {
-      "role": {
-        "type": "string",
-        "required": true
-      },
-      "name": {
-        "type": "string",
-        "required": true
-      },
-      "email": {
-        "type": "string",
-        "required": true
-      },
-      "phone_number": {
-        "type": "string",
-        "required": true
+      "type": {
+        "role": {
+          "type": "string",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "email": {
+          "type": "string",
+          "required": true
+        },
+        "phone_number": {
+          "type": "string",
+          "required": true
+        }
       }
     }
   },
