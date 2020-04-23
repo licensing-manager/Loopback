@@ -50,5 +50,9 @@
   "enduser": {
     "dataSource": "mongoatlas",
     "public": true
+  },
+  "license": {
+    "dataSource": "mongoatlas",
+    "public": true
   }
 }

@@ -1,0 +1,38 @@
+{
+  "name": "KeyCluster",
+  "plural": "KeyClusters",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "key": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "prototype.status": {
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "response",
+          "type": "string",
+          "root": true,
+          "description": "keys"
+        }
+      ],
+      "description": "keys",
+      "http": [
+        {
+          "path": "/status",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

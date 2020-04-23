@@ -1,0 +1,33 @@
+{
+  "name": "license",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "num": {
+      "type": "number",
+      "required": true
+    },
+    "licenses": {
+      "type": [
+        "string"
+      ]
+    },
+    "product": {
+      "type": [
+        "string"
+      ]
+    },
+    "expiration_date": {
+      "type": [
+        "string"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
