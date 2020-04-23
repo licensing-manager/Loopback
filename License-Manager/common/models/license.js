@@ -43,4 +43,49 @@ module.exports = function(License) {
           }
         }
       );
+
+      License.verify = function(license_key, product_s, cb) {
+        let filter={
+            where: {
+                    licenses: license_key,
+                    product: product_s
+                   },
+        }
+        License.find(filter, function(license_model) {
+            if (license_model) {
+                var exp_date = new Date(license_model[0].expiration_date);
+                var today = new Date();
+
+                console.log(exp_date);
+                console.log(today);
+                if (exp_date > today) {
+                    cb(null, true);
+                }
+            }
+            cb(null, false);
+        });
+        
+      }
+
+      License.remoteMethod(
+        'verify', {
+          http: {
+            path: '/verify',
+            verb: 'get'
+          },
+          accepts: [ {
+              arg: 'license_key',
+              type: 'string'
+             },
+             {
+                 arg:'product',
+                 type: 'string'
+             }
+            ],
+          returns: {
+            arg: 'verified',
+            type: 'Boolean'
+          }
+        }
+      );
 };
