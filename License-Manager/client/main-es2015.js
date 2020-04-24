@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div [hidden]=\"submitted\">\r\n        <h1>Enter New Purchase Order</h1>\r\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\r\n            <div class=\"form-group\">\r\n                <label for=\"id\">Purchase ID</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"id\"\r\n                       required\r\n                        [(ngModel)]=\"model.purchaseId\" name=\"id\"\r\n                        #id=\"ngModel\">\r\n                <div [hidden]=\"id.valid || id.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    ID is required\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\" [formGroup]=\"selections\">\r\n                <label for=\"cust\">Customer</label>\r\n                <select class=\"form-control\" formControlName=\"customerEntry\" id=\"cust\">\r\n                    <option *ngFor=\"let customer of customers\">{{customer.companyName}}</option>\r\n                </select>\r\n                <br>\r\n                <label for=\"product\">Product</label>\r\n                <select class=\"form-control\" formControlName=\"productEntry\" id=\"product\">\r\n                    <option *ngFor=\"let product of products\">{{product.name}}</option>\r\n                </select>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"no_licenses\">Number of Licenses</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"no_licenses\"\r\n                       required\r\n                        [(ngModel)]=\"model.no_of_licenses\" name=\"no_licenses\"\r\n                        #no_licenses=\"ngModel\">\r\n                <div [hidden]=\"no_licenses.valid || no_licenses.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    # of licenses is required\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"exp\">Expiration Date</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"exp\"\r\n                       required\r\n                        [(ngModel)]=\"model.expiration_date\" name=\"exp\"\r\n                        #exp=\"ngModel\">\r\n                <div [hidden]=\"exp.valid || exp.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    Expiration Date is required\r\n                </div>\r\n            </div>\r\n            <button type=\"submit\" class=\"btn btn-success\"\r\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\r\n        </form>\r\n    </div>\r\n\r\n    <div [hidden]=\"!submitted\">\r\n        <h2>You submitted the following:</h2>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Id: </div>\r\n            <div class=\"col-xs-9\"> {{ model.id }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Customer Name: </div>\r\n            <div class=\"col-xs-9\"> {{ model.customer_name }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Product: </div>\r\n            <div class=\"col-xs-9\"> {{ model.product }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Number of Licenses: </div>\r\n            <div class=\"col-xs-9\"> {{ model.no_of_licenses }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Expiration Date: (mm/dd/yyyy)</div>\r\n            <div class=\"col-xs-9\"> {{ model.expiration_date }}</div>\r\n        </div>\r\n        <br>\r\n        <br>\r\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\r\n        <button class=\"btn btn-success\" (click)=\"closeDialog()\">Add Purchase</button>\r\n    </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <div [hidden]=\"submitted\">\r\n        <h1>Enter New Purchase Order</h1>\r\n        <form (ngSubmit)=\"onSubmit()\" #customerForm=\"ngForm\">\r\n            <div class=\"form-group\">\r\n                <label for=\"id\">Purchase ID</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"id\"\r\n                       required\r\n                        [(ngModel)]=\"model.purchaseId\" name=\"id\"\r\n                        #id=\"ngModel\">\r\n                <div [hidden]=\"id.valid || id.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    ID is required\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\" [formGroup]=\"selections\">\r\n                <label for=\"cust\">Customer</label>\r\n                <select class=\"form-control\" formControlName=\"customerEntry\" id=\"cust\">\r\n                    <option *ngFor=\"let customer of customers\">{{customer.companyName}}</option>\r\n                </select>\r\n                <br>\r\n                <label for=\"product\">Product</label>\r\n                <select class=\"form-control\" formControlName=\"productEntry\" id=\"product\">\r\n                    <option *ngFor=\"let product of products\">{{product.name}}</option>\r\n                </select>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"no_licenses\">Number of Licenses</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"no_licenses\"\r\n                       required\r\n                        [(ngModel)]=\"model.no_of_licenses\" name=\"no_licenses\"\r\n                        #no_licenses=\"ngModel\">\r\n                <div [hidden]=\"no_licenses.valid || no_licenses.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    # of licenses is required\r\n                </div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"exp\">Expiration Date (mm/dd/yyyy)</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"exp\"\r\n                       required\r\n                        [(ngModel)]=\"model.expiration_date\" name=\"exp\"\r\n                        #exp=\"ngModel\">\r\n                <div [hidden]=\"exp.valid || exp.pristine\"\r\n                    class=\"alert alert-danger\">\r\n                    Expiration Date is required\r\n                </div>\r\n            </div>\r\n            <button type=\"submit\" class=\"btn btn-success\"\r\n            [disabled]=\"!customerForm.form.valid\">Submit</button>\r\n        </form>\r\n    </div>\r\n\r\n    <div [hidden]=\"!submitted\">\r\n        <h2>You submitted the following:</h2>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Id: </div>\r\n            <div class=\"col-xs-9\"> {{ model.purchaseId }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Customer Name: </div>\r\n            <div class=\"col-xs-9\"> {{ model.customer_name }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Product: </div>\r\n            <div class=\"col-xs-9\"> {{ model.product }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Number of Licenses: </div>\r\n            <div class=\"col-xs-9\"> {{ model.no_of_licenses }}</div>\r\n        </div>\r\n        <br>\r\n        <div class=\"row\">\r\n            <div class=\"col-xs-3\">Expiration Date:</div>\r\n            <div class=\"col-xs-9\"> {{ model.expiration_date }}</div>\r\n        </div>\r\n        <br>\r\n        <br>\r\n        <button class=\"btn btn-primary\" (click)=\"submitted=false\">Edit</button>\r\n        <button class=\"btn btn-success\" [disabled]=\"licensesGenerated\"  (click)=\"generateLicenses(model.no_of_licenses, model.product, model.expiration_date)\">Generate Licenses and Save</button>\r\n        <!-- <button class=\"btn btn-success\" [disabled]=\"!licensesGenerated\" (click)=\"closeDialog()\">Add Purchase</button> -->\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -435,6 +435,59 @@ CustomerService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/Services/licenses.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/Services/licenses.service.ts ***!
+  \**********************************************/
+/*! exports provided: LicensesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LicensesService", function() { return LicensesService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let LicensesService = class LicensesService {
+    constructor(http) {
+        this.http = http;
+        this.saveData = (function () {
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.setAttribute('style', "display: none");
+            return function (data, fileName) {
+                var json = JSON.stringify(data, null, 4), blob = new Blob([json], { type: "application/json" }), url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = fileName;
+                a.click();
+                window.URL.revokeObjectURL(url);
+            };
+        }());
+    }
+    generateLicenses(request, customer_name) {
+        this.http.post('http://localhost:3000/api/licenses', request)
+            .subscribe(response => {
+            var filename = customer_name + '-' + request.product + '-' + request.expiration_date;
+            this.saveData(response, filename);
+        });
+    }
+};
+LicensesService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+LicensesService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], LicensesService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/Services/product.service.ts":
 /*!*********************************************!*\
   !*** ./src/app/Services/product.service.ts ***!
@@ -539,13 +592,12 @@ let PurchaseService = class PurchaseService {
             this.getPurchases();
         }
         this.purchasesExpiringSoon = [];
+        var _30_from_today = new Date();
+        _30_from_today.setMonth(_30_from_today.getMonth() + 1);
         var today = new Date();
-        var todayIO = today.toISOString();
-        var todayString = todayIO.slice(0, 4) + todayIO.slice(5, 7) + todayIO.slice(8, 10);
         for (var purchase of this.purchases) {
-            var reformattedDate = purchase.expiration_date.slice(6) + purchase.expiration_date.slice(0, 2)
-                + purchase.expiration_date.slice(3, 5);
-            if ((Number(reformattedDate) + 30 >= Number(todayString)) && (Number(todayString) <= Number(reformattedDate))) {
+            var exp_date = new Date(purchase.expiration_date);
+            if (exp_date < _30_from_today && today < exp_date) {
                 this.purchasesExpiringSoon.push(purchase);
             }
         }
@@ -738,7 +790,7 @@ AddProductComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkZC1wdXJjaGFzZS9hZGQtcHVyY2hhc2UuY29tcG9uZW50LmNzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("button {\r\n    margin-right:30px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRkLXB1cmNoYXNlL2FkZC1wdXJjaGFzZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksaUJBQWlCO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYWRkLXB1cmNoYXNlL2FkZC1wdXJjaGFzZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYnV0dG9uIHtcclxuICAgIG1hcmdpbi1yaWdodDozMHB4O1xyXG59Il19 */");
 
 /***/ }),
 
@@ -759,6 +811,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Services_product_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Services/product.service */ "./src/app/Services/product.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _Services_licenses_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Services/licenses.service */ "./src/app/Services/licenses.service.ts");
+
 
 
 
@@ -767,11 +821,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddPurchaseComponent = class AddPurchaseComponent {
-    constructor(customerService, purchaseService, productService, dialogRef) {
+    constructor(customerService, purchaseService, productService, licenseService, dialogRef) {
         this.customerService = customerService;
         this.purchaseService = purchaseService;
         this.productService = productService;
+        this.licenseService = licenseService;
         this.dialogRef = dialogRef;
+        this.licensesGenerated = false;
         this.model = {
             purchaseId: null,
             customer_name: "",
@@ -823,11 +879,23 @@ let AddPurchaseComponent = class AddPurchaseComponent {
         this.model.licenses = [];
         this.model.licenseKeyType = "";
     }
+    generateLicenses(n, product_s, exp_dt) {
+        var request = {
+            num: n,
+            licenses: [],
+            product: product_s,
+            expiration_date: exp_dt
+        };
+        this.licenseService.generateLicenses(request, this.model.customer_name);
+        this.licensesGenerated = true;
+        this.closeDialog();
+    }
 };
 AddPurchaseComponent.ctorParameters = () => [
     { type: _Services_customer_service__WEBPACK_IMPORTED_MODULE_2__["CustomerService"] },
     { type: _Services_purchase_service__WEBPACK_IMPORTED_MODULE_3__["PurchaseService"] },
     { type: _Services_product_service__WEBPACK_IMPORTED_MODULE_4__["ProductService"] },
+    { type: _Services_licenses_service__WEBPACK_IMPORTED_MODULE_7__["LicensesService"] },
     { type: _angular_material__WEBPACK_IMPORTED_MODULE_6__["MatDialogRef"] }
 ];
 AddPurchaseComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
