@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header\">\r\n  <a routerLink=\"/table\">License Manager</a>\r\n  <div class=\"header-right\">\r\n    <a routerLink=\"/dashboard\">Dashboard</a>\r\n    <a routerLink=\"/table\">Table</a>\r\n    <a routerLink=\"/login\">Login</a>\r\n  </div>\r\n</div>\r\n<div class=\"content\">\r\n  <router-outlet></router-outlet>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header\">\r\n  <a routerLink=\"/table\">License Manager</a>\r\n  <div class=\"header-right\">\r\n    <a routerLink=\"/dashboard\">Dashboard</a>\r\n    <a routerLink=\"/table\">Licenses</a>\r\n    <a routerLink=\"/login\">Login</a>\r\n  </div>\r\n</div>\r\n<div class=\"content\">\r\n  <router-outlet></router-outlet>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -1783,7 +1783,10 @@ let TableComponent = class TableComponent {
     }
     getPurchases() {
         this.purchaseService.getPurchases()
-            .subscribe(purchases => this.purchases = purchases);
+            .subscribe(purchases => {
+            this.purchases = purchases;
+            this.dataSource.data = this.purchases;
+        });
     }
     ngAfterViewInit() {
         this.dataSource.sort = this.sort;
